@@ -15,8 +15,8 @@ const Courses = () => {
 		title: "Introduction EduChamp - LMS plugin",
 		subtitle: "Programming",
 		reviews: 3,
-		disPrice: 120,
-		price: 190,
+		disPrice: 500,
+		price: 650,
 		img:"assets/images/courses/pic1.jpg"
 
 	  },
