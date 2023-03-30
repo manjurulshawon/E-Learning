@@ -1,8 +1,10 @@
 import React from 'react'
 import Slider from "react-slick";
 import Course from './Course';
+import {products} from "../../products"
 
 const Courses = () => {
+	
 	const settings = {
 		dots: false,
 		infinite: true,
@@ -47,6 +49,9 @@ const Courses = () => {
 		img:"assets/images/courses/pic4.jpg"
 
 	  }]
+	   
+	//   console.log(products)
+
   return (
     <div className="section-area section-sp2 popular-courses-bx">
                 <div className="container">
@@ -59,7 +64,7 @@ const Courses = () => {
 					<div className="row">
 					<div className="col-12 p-lr0">
 						<Slider {...settings} >
-							{courses.map((data,key)=><Course key={key} course={data}/>)}
+							{products.map((data,key)=><Course key={key} course={data}/>)}
 						</Slider>
 					</div>
 					</div>

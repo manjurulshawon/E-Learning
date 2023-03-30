@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 const Header = () => {
   return (
@@ -66,43 +67,15 @@ const Header = () => {
 							<a href="index.html"><img src="assets/images/logo.png" alt="" /></a>
 						</div>
                         <ul className="nav navbar-nav">	
-							<li className="active"><a href="#">Home <i className="fa fa-chevron-down"></i></a>
-								<ul className="sub-menu">
-									<li><a href="index.html">Home 1</a></li>
-									<li><a href="index-2.html">Home 2</a></li>
-								</ul>
+						<li className="active">
+
+								<NavLink to={"/"}>Home</NavLink>
+						</li>
+							<li className="">
+							<NavLink to={"/about"}>About</NavLink>
 							</li>
-							<li><a href="#">Pages <i className="fa fa-chevron-down"></i></a>
-								<ul className="sub-menu">
-									<li><a href="#">About<i className="fa fa-angle-right"></i></a>
-										<ul className="sub-menu">
-											<li><a href="about-1.html">About 1</a></li>
-											<li><a href="about-2.html">About 2</a></li>
-										</ul>
-									</li>
-									<li><a href="#">Event<i className="fa fa-angle-right"></i></a>
-										<ul className="sub-menu">
-											<li><a href="event.html">Event</a></li>
-											<li><a href="events-details.html">Events Details</a></li>
-										</ul>
-									</li>
-									<li><a href="#">FAQ's<i className="fa fa-angle-right"></i></a>
-										<ul className="sub-menu">
-											<li><a href="faq-1.html">FAQ's 1</a></li>
-											<li><a href="faq-2.html">FAQ's 2</a></li>
-										</ul>
-									</li>
-									<li><a href="#">Contact Us<i className="fa fa-angle-right"></i></a>
-										<ul className="sub-menu">
-											<li><a href="contact-1.html">Contact Us 1</a></li>
-											<li><a href="contact-2.html">Contact Us 2</a></li>
-										</ul>
-									</li>
-									<li><a href="portfolio.html">Portfolio</a></li>
-									<li><a href="profile.html">Profile</a></li>
-									<li><a href="membership.html">Membership</a></li>
-									<li><a href="error-404.html">404 Page</a></li>
-								</ul>
+							<li className="">
+							<NavLink to={"/blog"}>Blog</NavLink>
 							</li>
 							<li className="add-mega-menu"><a href="#">Our Courses <i className="fa fa-chevron-down"></i></a>
 								<ul className="sub-menu add-menu">

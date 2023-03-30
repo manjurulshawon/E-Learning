@@ -14,7 +14,6 @@ const Home = () => {
     <div className="page-wraper">
 {/* <div id="loading-icon-bx"></div> */}
 	{/* <!-- Header Top ==== --> */}
-    <Header />
     {/* <!-- Header Top END ==== --> */}
     {/* <!-- Content --> */}
     <div className="page-content bg-white">
