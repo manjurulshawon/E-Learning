@@ -31,8 +31,8 @@ const Content = () => {
 						<div className="col-lg-3 col-md-4 col-sm-12 m-b30">
 							<div className="course-detail-bx">
 								<div className="course-price">
-									<del>$190</del>
-									<h4 className="price">$120</h4>
+									<del>{data.price.discount}</del>
+									<h4 className="price">{data.price.original}</h4>
 								</div>	
 								<div className="course-buy-now text-center">
 									<a href="#" className="btn radius-xl text-uppercase">Buy Now This Courses</a>
@@ -44,7 +44,7 @@ const Content = () => {
 										</div>
 										<div className="teacher-name">
 											<h5>Hinata Hyuga</h5>
-											<span>Science Teacher</span>
+											<span>Science Teacher</span> 
 										</div>
 									</div>
 								</div>
@@ -68,7 +68,7 @@ const Content = () => {
 									<ul className="navbar">
 										<li><a className="nav-link" href="#overview"><i className="ti-zip"></i>Overview</a></li>
 										<li><a className="nav-link" href="#curriculum"><i className="ti-bookmark-alt"></i>Curriculum</a></li>
-										<li><a className="nav-link" href="#instructor"><i className="ti-user"></i>Instructor</a></li>
+										<li><a className="nav-link" href="#"><i className="ti-user"></i>Instructor : {data.created_by} </a></li>
 										<li><a className="nav-link" href="#reviews"><i className="ti-comments"></i>Reviews</a></li>
 									</ul>
 								</div>
@@ -94,11 +94,11 @@ const Content = () => {
 								<div className="row">
 									<div className="col-md-12 col-lg-4">
 										<ul className="course-features">
-											<li><i className="ti-book"></i> <span className="label">Lectures</span> <span className="value">8</span></li>
+											<li><i className="ti-book"></i> <span className="label">Lectures</span> <span className="value">{data.course_content.lectures}</span></li>
 											<li><i className="ti-help-alt"></i> <span className="label">Quizzes</span> <span className="value">1</span></li>
-											<li><i className="ti-time"></i> <span className="label">Duration</span> <span className="value">60 hours</span></li>
+											<li><i className="ti-time"></i> <span className="label">Duration</span> <span className="value">{data.duration}</span></li>
 											<li><i className="ti-stats-up"></i> <span className="label">Skill level</span> <span className="value">Beginner</span></li>
-											<li><i className="ti-smallcap"></i> <span className="label">Language</span> <span className="value">English</span></li>
+											<li><i className="ti-smallcap"></i> <span className="label">Language</span> <span className="value">{data.language}</span></li>
 											<li><i className="ti-user"></i> <span className="label">Students</span> <span className="value">32</span></li>
 											<li><i className="ti-check-box"></i> <span className="label">Assessments</span> <span className="value">Yes</span></li>
 										</ul>
@@ -110,14 +110,11 @@ const Content = () => {
 										<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
 										<h5 className="m-b5">Learning Outcomes</h5>
 										<ul className="list-checked primary">
-											<li>Over 37 lectures and 55.5 hours of content!</li>
-											<li>LIVE PROJECT End to End Software Testing Training Included.</li>
-											<li>Learn Software Testing and Automation basics from a professional trainer from your own desk.</li>
-											<li>Information packed practical training starting from basics to advanced testing techniques.</li>
-											<li>Best suitable for beginners to advanced level users and who learn faster when demonstrated.</li>
-											<li>Course content designed by considering current software testing technology and the job market.</li>
-											<li>Practical assignments at the end of every session.</li>
-											<li>Practical learning experience with live project work and examples.cv</li>
+										{
+												data.topics.map(topic=><li>{topic}</li>)
+											}
+											{/* <li>Over 37 lectures and 55.5 hours of content!</li> */}
+										
 										</ul>
 									</div>
 								</div>

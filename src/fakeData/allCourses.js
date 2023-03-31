@@ -56,7 +56,7 @@ export const allCourses = [
     },
     language: "English",
     topics: [
-      "   Command Line Basics",
+      "Command Line Basics",
       "Installing Python",
       "Running Python Code",
       "Strings",
