@@ -1,15 +1,8 @@
-import React from 'react'
-import Content from '../componets/blog/Content'
+import React from "react";
+import Content from "../componets/blog/Content";
 
- const Blog = () => {
-  return (
-    
-    <>
-    <Content />
-    </>
-    
-    
-  )
-}
+const Blog = () => {
+  return <>{/* <Content /> */}</>;
+};
 
-export default Blog
+export default Blog;
