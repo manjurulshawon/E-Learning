@@ -14,6 +14,7 @@ import Contact from "./pages/Contact";
 import InstructorProfile from "./pages/InstructorProfile";
 import ForgetPass from "./pages/ForgetPass";
 import Error from "./pages/Error";
+import AllCourses from "./pages/allCourses/AllCourses";
 
 function App() {
   let location = useLocation();
@@ -28,17 +29,19 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/blog" element={<Blog />} />
-        <Route path="/courses/:courseId" element={<CourseDetails />} />
+        <Route path="/courses/:courseId" element={<CourseDetail />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/courses" element={<AllCourses />} />
         <Route path="*" element={<Error />} />
       </Routes>
 
-      <CourseDetail />
-      <Contact />
-      <InstructorProfile />
-      <ForgetPass />
-    </>
+       {/* <CourseDetail /> */}
+
+      {/* <InstructorProfile />
+      <ForgetPass /> */}
+    </> 
   );
 }
 

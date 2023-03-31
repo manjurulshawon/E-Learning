@@ -1,10 +1,19 @@
-import React from 'react'
-
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import { allCourses } from '../../fakeData/allCourses'
 const Content = () => {
+	const {courseId} = useParams()
+	const [course,setCourse]= useState([])
+	console.log("idc",courseId);
+	// let data = allCourses.filter(course=> course._id == courseId)
+	let data = allCourses.find(course=> course._id == courseId)
+	console.log("darta",data);
   return (
     <div className="page-content bg-white">
        
-        <div className="page-banner ovbl-dark" style={{backgroundImage:'url(assets/images/banner/banner2.jpg)'}}>
+        <div className="page-banner ovbl-dark" 
+		// style={{backgroundImage:'url(assets/images/banner/banner2.jpg)'}}
+		>
             <div className="container">
                 <div className="page-banner-entry">
                     <h1 className="text-white">Courses Details</h1>
@@ -12,14 +21,7 @@ const Content = () => {
             </div>
         </div>
 		
-		<div className="breadcrumb-row">
-			<div className="container">
-				<ul className="list-inline">
-					<li><a href="#">Home</a></li>
-					<li>Courses Details</li>
-				</ul>
-			</div>
-		</div>
+		
 		
 		<div className="content-block">
            
@@ -80,10 +82,10 @@ const Content = () => {
 								</div>
 								<div className="ttr-post-info">
 									<div className="ttr-post-title ">
-										<h2 className="post-title">Nvidia and UE4 Technologies Practice</h2>
+										<h2 className="post-title"> {data.course_name}</h2>
 									</div>
 									<div className="ttr-post-text">
-										<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+										<p>{data.description.short_description}</p>
 									</div>
 								</div>
 							</div>
@@ -103,7 +105,7 @@ const Content = () => {
 									</div>
 									<div className="col-md-12 col-lg-8">
 										<h5 className="m-b5">Course Description</h5>
-										<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+										<p>{data.description.description}</p>
 										<h5 className="m-b5">Certification</h5>
 										<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
 										<h5 className="m-b5">Learning Outcomes</h5>

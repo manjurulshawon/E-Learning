@@ -127,39 +127,15 @@ const Header = () => {
                   <NavLink to={"/"}>Home</NavLink>
                 </li>
                 <li className="">
+                  <NavLink to={"/courses"}>Our Courses</NavLink>
+                </li>
+                <li className="">
                   <NavLink to={"/about"}>About</NavLink>
                 </li>
                 {/* <li className="">
 							<NavLink to={"/blog"}>Blog</NavLink>
 							</li> */}
-                <li className="">
-                  <a href="#">Our Courses</a>
-                  {/* <ul className="sub-menu add-menu">
-                    <li className="add-menu-left">
-                      <h5 className="menu-adv-title">Our Courses</h5>
-                      <ul>
-                        <li>
-                          <a href="courses.html">Courses </a>
-                        </li>
-                        <li>
-                          <a href="courses-details.html">Courses Details</a>
-                        </li>
-                        <li>
-                          <a href="profile.html">Instructor Profile</a>
-                        </li>
-                        <li>
-                          <a href="event.html">Upcoming Event</a>
-                        </li>
-                        <li>
-                          <a href="membership.html">Membership</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li className="add-menu-right">
-                      <img src="assets/images/adv/adv.jpg" alt="" />
-                    </li>
-                  </ul> */}
-                </li>
+
                 {/* <li>
                   <a href="#">
                     Blog <i className="fa fa-chevron-down"></i>
@@ -186,6 +162,9 @@ const Header = () => {
                     </li>
                   </ul>
                 </li> */}
+                <li className="">
+                  <NavLink to={"/contact"}>Contact</NavLink>
+                </li>
                 <li className="nav-dashboard">
                   <a href="#">
                     Dashboard <i className="fa fa-chevron-down"></i>

@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import img1 from "../../assets/images/slider/slide1.jpg";
 import img2 from "../../assets/images/slider/slide2.jpg";
 import img3 from "../../assets/images/slider/slider-1.jpg";
+import img4 from "../../assets/images/slider/slide4.jpg";
 import SlickSlider from "react-slick";
 
 const Slider = () => {
@@ -15,27 +16,34 @@ const Slider = () => {
     // slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
-    speed: 5000,
+    speed: 1000,
     autoplaySpeed: 3000,
-    arrows: true
+    arrows: true,
     // cssEase: "linear"
   };
   return (
-   <div>
-     <SlickSlider {...settings}>
-      <div>
-        <div><img src={img3} /></div>
-      </div>
-      <div>
-        <div><img src={img1} /></div>
-      </div>
-      <div>
+    <div>
+      <SlickSlider {...settings}>
         <div>
-        <img src={img2} />
+          <div>
+            <img src={img3} />
+          </div>
         </div>
-      </div>
-    </SlickSlider>
-   </div>
+        {/* <div>
+          <div>
+            <img src={img1} />
+          </div>
+        </div>
+        <div>
+          <div>
+            <img src={img2} />
+          </div>
+        </div> */}
+        <div>
+          <img src={img4} />
+        </div>
+      </SlickSlider>
+    </div>
   );
 };
 

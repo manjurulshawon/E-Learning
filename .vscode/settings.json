@@ -1,5 +1,5 @@
-{
-  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+ {
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": false,
   "diffEditor.ignoreTrimWhitespace": false,
   "files.refactoring.autoSave": false
 }
