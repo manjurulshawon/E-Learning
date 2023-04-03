@@ -8,8 +8,10 @@ import Testimonial from '../componets/home/Testimonial';
 import News from '../componets/home/News';
 import Footer from '../componets/home/Footer';
 import Header from '../componets/home/Header';
+import useAuth from '../hooks/useAuth';
 
 const Home = () => {
+	const {user} = useAuth()
   return (
     <div className="page-wraper">
 {/* <div id="loading-icon-bx"></div> */}

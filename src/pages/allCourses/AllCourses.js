@@ -50,7 +50,7 @@ const AllCourses = () => {
                   </div>
                   <div class="widget">
                     <a href="#">
-                      <img src="assets/images/adv/adv.jpg" alt="" />
+                       {/* <img src="assets/images/adv/adv.jpg" alt="" />  */}
                     </a>
                   </div>
                   <div class="widget recent-posts-entry widget-courses">

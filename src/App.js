@@ -15,14 +15,18 @@ import InstructorProfile from "./pages/InstructorProfile";
 import ForgetPass from "./pages/ForgetPass";
 import Error from "./pages/Error";
 import AllCourses from "./pages/allCourses/AllCourses";
-
+import Dashboard from "./pages/Dashboard";
+import './assets/css/dashboard.css'
+// import './assets/css/dashboardStyle.css'
 function App() {
   let location = useLocation();
   console.log(location);
   return (
     <>
       {location.pathname == "/login" ||
-      location.pathname == "/register" ? null : (
+      location.pathname == "/register" ||
+      location.pathname == "/dashboard" 
+      ? null : (
         <Header />
       )}
       <Routes>
@@ -34,6 +38,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/courses" element={<AllCourses />} />
+        <Route path="/dashboard" element={<Dashboard/>} />
         <Route path="*" element={<Error />} />
       </Routes>
 
@@ -41,6 +46,7 @@ function App() {
 
       {/* <InstructorProfile />
       <ForgetPass /> */}
+    
     </> 
   );
 }

@@ -1,16 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 const LoginPage = () => {
+  const {signWithGoogle,user} = useAuth()
+
   return (
     <div className="account-form">
       <div
         className="account-head"
         style={{ backgroundImage: "url(assets/images/background/bg2.jpg)" }}
       >
-        <a href="index.html">
+        <Link to="/">
           <img src="assets/images/logo-white-2.png" alt="" />
-        </a>
+        </Link>
       </div>
       <div className="account-form-inner">
         <div className="account-container">
@@ -86,7 +89,7 @@ const LoginPage = () => {
                   <a className="btn flex-fill m-r5 facebook" href="#">
                     <i className="fa fa-facebook"></i>Facebook
                   </a>
-                  <a className="btn flex-fill m-l5 google-plus" href="#">
+                  <a className="btn flex-fill m-l5 google-plus" href="#" onClick={signWithGoogle}>
                     <i className="fa fa-google-plus"></i>Google Plus
                   </a>
                 </div>

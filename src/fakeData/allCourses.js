@@ -13,7 +13,7 @@ export const allCourses = [
       discount: 16.99,
     },
     rating: 457372,
-    picture: "http://placehold.it/32x32",
+    picture: "https://img-b.udemycdn.com/course/240x135/567828_67d0.jpg",
     created_by: "Jose Portilla",
     duration: "22 h",
     course_content: {

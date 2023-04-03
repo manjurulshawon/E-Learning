@@ -123,7 +123,7 @@ const Header = () => {
                 </a>
               </div>
               <ul className="nav navbar-nav">
-                <li className="active">
+                <li className="">
                   <NavLink to={"/"}>Home</NavLink>
                 </li>
                 <li className="">
@@ -135,33 +135,6 @@ const Header = () => {
                 {/* <li className="">
 							<NavLink to={"/blog"}>Blog</NavLink>
 							</li> */}
-
-                {/* <li>
-                  <a href="#">
-                    Blog <i className="fa fa-chevron-down"></i>
-                  </a>
-                  <ul className="sub-menu">
-                    <li>
-                      <a href="blog-classic-grid.html">Blog Classic</a>
-                    </li>
-                    <li>
-                      <a href="blog-classic-sidebar.html">
-                        Blog Classic Sidebar
-                      </a>
-                    </li>
-                    <li>
-                      <a href="blog-list-sidebar.html">Blog List Sidebar</a>
-                    </li>
-                    <li>
-                      <a href="blog-standard-sidebar.html">
-                        Blog Standard Sidebar
-                      </a>
-                    </li>
-                    <li>
-                      <a href="blog-details.html">Blog Details</a>
-                    </li>
-                  </ul>
-                </li> */}
                 <li className="">
                   <NavLink to={"/contact"}>Contact</NavLink>
                 </li>

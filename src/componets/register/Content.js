@@ -8,9 +8,9 @@ const Content = () => {
         className="account-head"
         style={{ backgroundImage: "url(assets/images/background/bg2.jpg)" }}
       >
-        <a href="index.html">
+        <Link to="/">
           <img src="assets/images/logo-white-2.png" alt="" />
-        </a>
+        </Link>
       </div>
       <div className="account-form-inner">
         <div className="account-container">

@@ -40,7 +40,7 @@ const Content = () => {
 								<div className="teacher-bx">
 									<div className="teacher-info">
 										<div className="teacher-thumb">
-											<img src="assets/images/testimonials/pic1.jpg" alt=""/>
+											 <img src="assets/images/testimonials/pic1.jpg" alt=""/> 
 										</div>
 										<div className="teacher-name">
 											<h5>Hinata Hyuga</h5>
@@ -306,9 +306,7 @@ const Content = () => {
 									</div>
 								</div>
 							</div>
-							
 						</div>
-						
 					</div>
 				</div>
             </div>
