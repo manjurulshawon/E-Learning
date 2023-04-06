@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 
 const Course = ({course}) => {
-  console.log(course)
+  // console.log(course)
     const {picture,price, disPrice,reviews,course_name,subtitle,_id} = course
   return (
     <div className="item me-2">

@@ -16,17 +16,20 @@ import ForgetPass from "./pages/ForgetPass";
 import Error from "./pages/Error";
 import AllCourses from "./pages/allCourses/AllCourses";
 import Dashboard from "./pages/Dashboard";
-import './assets/css/dashboard.css'
+import "./assets/css/dashboard.css";
+import AuthProvider from "./context/AuthProvider";
 // import './assets/css/dashboardStyle.css'
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+
 function App() {
   let location = useLocation();
   console.log(location);
   return (
-    <>
+    <AuthProvider>
       {location.pathname == "/login" ||
       location.pathname == "/register" ||
-      location.pathname == "/dashboard" 
-      ? null : (
+      location.pathname == "/dashboard" ? null : (
         <Header />
       )}
       <Routes>
@@ -38,16 +41,27 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/courses" element={<AllCourses />} />
-        <Route path="/dashboard" element={<Dashboard/>} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="*" element={<Error />} />
       </Routes>
 
-       {/* <CourseDetail /> */}
+      {/* <CourseDetail /> */}
 
       {/* <InstructorProfile />
       <ForgetPass /> */}
-    
-    </> 
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+    </AuthProvider>
   );
 }
 

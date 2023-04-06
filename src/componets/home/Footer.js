@@ -98,13 +98,13 @@ const Footer = () => {
                 </div>
             </div>
         </div>
-        <div className="footer-bottom">
+        {/* <div className="footer-bottom">
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12 col-md-12 col-sm-12 text-center"> <a target="_blank" href="https://www.templateshub.net">Templates Hub</a></div>
                 </div>
             </div>
-        </div>
+        </div> */}
     </footer>
   )
 }

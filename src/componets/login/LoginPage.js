@@ -1,10 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useNavigation } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
-
+import { BsGithub } from "react-icons/bs";
 const LoginPage = () => {
-  const {signWithGoogle,user} = useAuth()
+  const navigation = useNavigate();
+  const { googleSignIn, user, githubSignIn } = useAuth();
 
+  const signinWithGoogle = () => {
+    googleSignIn();
+  };
+  console.log(user);
   return (
     <div className="account-form">
       <div
@@ -89,8 +94,18 @@ const LoginPage = () => {
                   <a className="btn flex-fill m-r5 facebook" href="#">
                     <i className="fa fa-facebook"></i>Facebook
                   </a>
-                  <a className="btn flex-fill m-l5 google-plus" href="#" onClick={signWithGoogle}>
-                    <i className="fa fa-google-plus"></i>Google Plus
+                  <a
+                    className="btn flex-fill m-r5 facebook"
+                    onClick={githubSignIn}
+                  >
+                    <BsGithub /> Github
+                  </a>
+                  <a
+                    className="btn flex-fill m-l5 google-plus"
+                    href="#"
+                    onClick={signinWithGoogle}
+                  >
+                    <i className="fa fa-google-plus"></i>Google
                   </a>
                 </div>
               </div>

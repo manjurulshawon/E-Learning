@@ -1,7 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 const Header = () => {
+const {user,logout} = useAuth()
+  
   return (
     <header className="header rs-nav header-transparent">
       <div className="top-bar">
@@ -138,6 +141,8 @@ const Header = () => {
                 <li className="">
                   <NavLink to={"/contact"}>Contact</NavLink>
                 </li>
+
+                {user?.email ? 
                 <li className="nav-dashboard">
                   <a href="#">
                     Dashboard <i className="fa fa-chevron-down"></i>
@@ -149,58 +154,16 @@ const Header = () => {
                     <li>
                       <a href="admin/add-listing.html">My Dashboard</a>
                     </li>
-
-                    {/* <li>
-                      <a href="admin/bookmark.html">Bookmark</a>
-                    </li>
                     <li>
-                      <a href="admin/courses.html">Courses</a>
+                      <a onClick={logout}>Logout</a>
                     </li>
-                    <li>
-                      <a href="admin/review.html">Review</a>
-                    </li>
-                    <li>
-                      <a href="admin/teacher-profile.html">Teacher Profile</a>
-                    </li>
-                    <li>
-                      <a href="admin/user-profile.html">User Profile</a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        Calendar<i className="fa fa-angle-right"></i>
-                      </a>
-                      <ul className="sub-menu">
-                        <li>
-                          <a href="admin/basic-calendar.html">Basic Calendar</a>
-                        </li>
-                        <li>
-                          <a href="admin/list-view-calendar.html">
-                            List View Calendar
-                          </a>
-                        </li>
-                      </ul>
-                    </li> */}
-                    {/* <li>
-                      <a href="#">
-                        Mailbox<i className="fa fa-angle-right"></i>
-                      </a>
-                      <ul className="sub-menu">
-                        <li>
-                          <a href="admin/mailbox.html">Mailbox</a>
-                        </li>
-                        <li>
-                          <a href="admin/mailbox-compose.html">Compose</a>
-                        </li>
-                        <li>
-                          <a href="admin/mailbox-read.html">Mail Read</a>
-                        </li>
-                      </ul>
-                    </li> */}
                   </ul>
                 </li>
-                <li>
-                  <a href="/login">Login/Register</a>
-                </li>
+                : <li>
+                <a href="/login">Login/Register</a>
+              </li>
+                }
+                
               </ul>
               {/* <div className="nav-social-link">
                 <li>

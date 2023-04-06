@@ -80,7 +80,7 @@ const Content = () => {
                     <i className="fa fa-facebook"></i>Facebook
                   </a>
                   <a className="btn flex-fill m-l5 google-plus" href="#">
-                    <i className="fa fa-google-plus"></i>Google Plus
+                    <i className="fa fa-google-plus"></i>Google 
                   </a>
                 </div>
               </div>

@@ -9,6 +9,7 @@ import img3 from "../../assets/images/slider/slider-1.jpg";
 import img4 from "../../assets/images/slider/slide4.jpg";
 import img5 from "../../assets/images/slider/slide5.jpg";
 import img6 from "../../assets/images/slider/slide6.jpg";
+import img7 from "../../assets/images/slider/slide7.jpg";
 import SlickSlider from "react-slick";
 
 const Slider = () => {
@@ -29,6 +30,11 @@ const Slider = () => {
         <div>
           <div>
             <img src={img3} />
+          </div>
+        </div>
+        <div>
+          <div>
+            <img src={img7} />
           </div>
         </div>
         <div>
