@@ -21,6 +21,8 @@ import AuthProvider from "./context/AuthProvider";
 // import './assets/css/dashboardStyle.css'
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import PrivateRoute from "./componets/PrivateRoute/PrivateRoute";
+import Footer from "./componets/home/Footer";
 
 function App() {
   let location = useLocation();
@@ -36,15 +38,21 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/blog" element={<Blog />} />
-        <Route path="/courses/:courseId" element={<CourseDetail />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/courses" element={<AllCourses />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/courses/:courseId" element={<CourseDetail />} />
+        {/* <Route path="/dashboard" element={
+        <PrivateRoute>
+
+          <Dashboard />
+        </PrivateRoute>
+        } /> */}
+         {/* <PrivateRoute path="/dashboard" element={<Dashboard />}></PrivateRoute> */}
         <Route path="*" element={<Error />} />
       </Routes>
-
+      <Footer />
       {/* <CourseDetail /> */}
 
       {/* <InstructorProfile />

@@ -1,7 +1,7 @@
 import React from "react";
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
 
 import img1 from "../../assets/images/slider/slide1.jpg";
 import img2 from "../../assets/images/slider/slide2.jpg";
@@ -25,21 +25,21 @@ const Slider = () => {
     // cssEase: "linear"
   };
   return (
-    <div>
-      <SlickSlider {...settings}>
+    <div >
+      <SlickSlider {...settings}  style={{height: '90vh'}}>
         <div>
           <div>
-            <img src={img3} />
+            <img  style={{height: '90vh', width: '100%'}}  src={img3} />
           </div>
         </div>
         <div>
           <div>
-            <img src={img7} />
+            <img style={{height: '90vh', width: '100%'}}   src={img7} />
           </div>
         </div>
         <div>
           <div>
-            <img src={img6} />
+            <img style={{height: '90vh', width: '100%'}}   src={img6} />
           </div>
         </div>
         {/* <div>
@@ -54,7 +54,7 @@ const Slider = () => {
         </div> */}
          <div>
           <div>
-            <img src={img5} />
+            <img style={{height: '90vh', width: '100%'}}  src={img5} />
           </div>
         </div>
         {/* <div>

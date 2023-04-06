@@ -51,7 +51,7 @@ const Footer = () => {
 									<ul>
 										<li><a href="index.html">Home</a></li>
 										<li><a href="about-1.html">About</a></li>
-										<li><a href="faq-1.html">FAQs</a></li>
+										
 										<li><a href="contact-1.html">Contact</a></li>
 									</ul>
 								</div>
@@ -62,7 +62,7 @@ const Footer = () => {
 									<ul>
 										<li><a href="http://educhamp.themetrades.com/admin/index.html">Dashboard</a></li>
 										<li><a href="blog-classic-grid.html">Blog</a></li>
-										<li><a href="portfolio.html">Portfolio</a></li>
+									
 										<li><a href="event.html">Event</a></li>
 									</ul>
 								</div>
@@ -73,8 +73,7 @@ const Footer = () => {
 									<ul>
 										<li><a href="courses.html">Courses</a></li>
 										<li><a href="courses-details.html">Details</a></li>
-										<li><a href="membership.html">Membership</a></li>
-										<li><a href="profile.html">Profile</a></li>
+										
 									</ul>
 								</div>
 							</div>

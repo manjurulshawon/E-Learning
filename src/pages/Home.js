@@ -30,7 +30,7 @@ const Home = () => {
 			{/* <!-- Our Services --> */}
 
 
-			<Services />
+			{/* <Services /> */}
 
 
             {/* <!-- Our Services END --> */}
@@ -63,7 +63,7 @@ const Home = () => {
     </div>
     {/* <!-- Content END-->
 	<!-- Footer ==== --> */}
-    <Footer />
+    {/* <Footer /> */}
     {/* <!-- Footer END ==== --> */}
     <button className="back-to-top fa fa-chevron-up" ></button>
 </div>

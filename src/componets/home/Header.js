@@ -48,9 +48,9 @@ const {user,logout} = useAuth()
           <div className="container clearfix">
             {/* <!-- Header Logo ==== --> */}
             <div className="menu-logo">
-              <a href="index.html">
+              <NavLink to={"/"} >
                 <img src="assets/images/logo-white.png" alt="" />
-              </a>
+              </NavLink>
             </div>
             {/* <!-- Mobile Nav Button ==== --> */}
             {/* <button
@@ -121,9 +121,9 @@ const {user,logout} = useAuth()
               id="menuDropdown"
             >
               <div className="menu-logo">
-                <a href="index.html">
+                <NavLink to={"/"} >
                   <img src="assets/images/logo.png" alt="" />
-                </a>
+                </NavLink>
               </div>
               <ul className="nav navbar-nav">
                 <li className="">

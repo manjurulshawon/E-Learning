@@ -13,13 +13,17 @@ import { toast } from "react-toastify";
 
 const useFirebase = () => {
   const navigation = useNavigate();
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({});
   const gootleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
   const auth = getAuth(initializedApp);
 
   const googleSignIn = () => {
-    return signInWithPopup(auth, gootleProvider);
+    signInWithPopup(auth, gootleProvider).then(() => {
+      setUser(user);
+      toast.success("Succesfully Logedin");
+      navigation("/");
+    });
   };
   const githubSignIn = () => {
     return signInWithPopup(auth, githubProvider);
@@ -29,8 +33,8 @@ const useFirebase = () => {
     const unsubscribed = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
-        toast.success("Succesfully Logedin");
-        navigation("/");
+        // toast.success("Succesfully Logedin");
+        // navigation("/");
       } else {
         setUser({});
       }

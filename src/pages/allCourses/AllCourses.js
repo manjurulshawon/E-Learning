@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 // import Content from "../../componets/allCourses/Content";
 import { allCourses } from "../../fakeData/allCourses";
 import AllCoursesBanner from "./AllCoursesBanner";
 import Content from "../../componets/AllCourses/Content";
 const AllCourses = () => {
-  console.log("allCourses", allCourses);
+  const [filterCourse,setFilterCourse]=useState(allCourses)
+  console.log("allCourses", filterCourse);
+  const searchHandler =(e)=>{
+
+  }
   return (
     <div>
       <div class="page-content bg-white">
@@ -50,7 +54,7 @@ const AllCourses = () => {
                   </div>
                   <div class="widget">
                     <a href="#">
-                       {/* <img src="assets/images/adv/adv.jpg" alt="" />  */}
+                      {/* <img src="assets/images/adv/adv.jpg" alt="" />  */}
                     </a>
                   </div>
                   <div class="widget recent-posts-entry widget-courses">
@@ -112,6 +116,13 @@ const AllCourses = () => {
                     </div>
                   </div>
                 </div>
+                <div class="col-lg-9 col-md-8 col-sm-12">
+                  <div class="row">
+                    {filterCourse.map((course) => (
+                      <Content course={course} />
+                    ))}
+                  </div>
+                </div>
                 {/* 
                 <div class="col-lg-9 col-md-8 col-sm-12">
                   <div class="row">
@@ -157,14 +168,7 @@ const AllCourses = () => {
                   </div>
                 </div> */}
                 {/* <div className="col-lg-3"> */}
-                <div class="col-lg-9 col-md-8 col-sm-12">
-        <div class="row">
-                
-                {allCourses.map((course) => (
-                  <Content course={course} />
-                ))}
-                </div>
-                </div>
+              
                 {/* </div> */}
               </div>
             </div>

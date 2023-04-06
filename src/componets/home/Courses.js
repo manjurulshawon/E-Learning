@@ -2,7 +2,7 @@ import React from 'react'
 import Slider from "react-slick";
 import Course from './Course';
 import {products} from "../../products"
-
+import { allCourses } from '../../fakeData/allCourses';
 const Courses = () => {
 	
 	const settings = {
@@ -12,6 +12,7 @@ const Courses = () => {
 		slidesToShow: 3,
 		slidesToScroll: 3
 	  };
+	//   const courses = allCourses.slice(0,3)
 
 	  const courses = [{
 		title: "Introduction EduChamp - LMS plugin",

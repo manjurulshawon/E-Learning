@@ -91,22 +91,21 @@ const LoginPage = () => {
               <div className="col-lg-12">
                 <h6>Login with Social media</h6>
                 <div className="d-flex">
-                  <a className="btn flex-fill m-r5 facebook" href="#">
+                  <Link className="btn flex-fill m-r5 facebook">
                     <i className="fa fa-facebook"></i>Facebook
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     className="btn flex-fill m-r5 facebook"
                     onClick={githubSignIn}
                   >
                     <BsGithub /> Github
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     className="btn flex-fill m-l5 google-plus"
-                    href="#"
                     onClick={signinWithGoogle}
                   >
-                    <i className="fa fa-google-plus"></i>Google
-                  </a>
+                    <i className="fa fa-google"></i>Google
+                  </Link>
                 </div>
               </div>
             </div>
