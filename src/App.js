@@ -15,14 +15,19 @@ import InstructorProfile from "./pages/InstructorProfile";
 import ForgetPass from "./pages/ForgetPass";
 import Error from "./pages/Error";
 import AllCourses from "./pages/allCourses/AllCourses";
-import Dashboard from "./pages/Dashboard";
+import "./componets/admin/Admin";
 import "./assets/css/dashboard.css";
 import AuthProvider from "./context/AuthProvider";
-// import './assets/css/dashboardStyle.css'
+//  import './assets/css/dashboardStyle.css'
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import PrivateRoute from "./componets/PrivateRoute/PrivateRoute";
 import Footer from "./componets/home/Footer";
+import Admin from "./componets/admin/Admin";
+import Dashboard from "./componets/admin/Dashboard";
+import Course from "./componets/admin/Course";
+import DashboardLayout from "./componets/admin/DashboardLayout";
+import Userprofile from "./componets/admin/Userprofile";
 
 function App() {
   let location = useLocation();
@@ -31,7 +36,8 @@ function App() {
     <AuthProvider>
       {location.pathname == "/login" ||
       location.pathname == "/register" ||
-      location.pathname == "/dashboard" ? null : (
+      location.pathname == "/dashboard" ||
+      "/dashboard/course" ? null : (
         <Header />
       )}
       <Routes>
@@ -43,13 +49,31 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/courses" element={<AllCourses />} />
         <Route path="/courses/:courseId" element={<CourseDetail />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route
+          path="/dashboard/course"
+          element={
+            <DashboardLayout>
+              <Course />
+            </DashboardLayout>
+          }
+        />
+        <Route
+          path="/dashboard/MyProfile"
+          element={
+            <DashboardLayout>
+             
+              <Userprofile />
+            </DashboardLayout>
+          }
+        />
         {/* <Route path="/dashboard" element={
         <PrivateRoute>
 
           <Dashboard />
         </PrivateRoute>
         } /> */}
-         {/* <PrivateRoute path="/dashboard" element={<Dashboard />}></PrivateRoute> */}
+        {/* <PrivateRoute path="/dashboard" element={<Dashboard />}></PrivateRoute> */}
         <Route path="*" element={<Error />} />
       </Routes>
       <Footer />
