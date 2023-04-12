@@ -152,7 +152,7 @@ const {user,logout} = useAuth()
                       <a href="admin/index.html">Admin</a>
                     </li>
                     <li>
-                      <a href="admin/add-listing.html">My Dashboard</a>
+                    <NavLink to={"/dashboard"}>My Dashboard</NavLink>
                     </li>
                     <li>
                       <a onClick={logout}>Logout</a>

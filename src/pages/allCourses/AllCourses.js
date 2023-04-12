@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 // import Content from "../../componets/allCourses/Content";
 import { allCourses } from "../../fakeData/allCourses";
 import AllCoursesBanner from "./AllCoursesBanner";
-import Content from "../../componets/AllCourses/Content";
+import Content from "../../componets/AllCourses/Course";
 import Header from "../../componets/home/Header";
+import Course from "../../componets/AllCourses/Course";
 const AllCourses = () => {
   const [course, setCourse] = useState([])
   const [filterCourse, setFilterCourse] = useState([])
@@ -150,7 +151,7 @@ const AllCourses = () => {
                 <div class="col-lg-9 col-md-8 col-sm-12">
                   <div class="row">
                     {filterCourse.map((course) => (
-                      <Content course={course} />
+                      <Course course={course} />
                     ))}
                   </div>
                 </div>

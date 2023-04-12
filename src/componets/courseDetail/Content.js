@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { allCourses } from "../../fakeData/allCourses";
 import { Spinner } from "react-bootstrap";
+import { TbCurrencyTaka } from "react-icons/tb";
 const Content = () => {
   const { courseId } = useParams();
   const [data, setData] = useState({});
@@ -21,7 +22,7 @@ const Content = () => {
         setIsLoading(false)
       })
 
-  }, [data])
+  }, [])
   // console.log("darta", data);
   return (
     <div className="page-content bg-white">
@@ -43,8 +44,8 @@ const Content = () => {
               <div className="col-lg-3 col-md-4 col-sm-12 m-b30">
                 <div className="course-detail-bx">
                   <div className="course-price">
-                    <del>{data.price.discount}</del>
-                    <h4 className="price">{data.price.original}</h4>
+                   
+                    <h4 className="price"> <TbCurrencyTaka /> {data.price.original}</h4>
                   </div>
                   <div className="course-buy-now text-center">
                     <a href="" className="btn radius-xl text-uppercase">
@@ -190,7 +191,7 @@ const Content = () => {
                     </div>
                   </div>
                 </div>
-                <div className="m-b30" id="curriculum">
+                {/* <div className="m-b30" id="curriculum">
                   <h4>Curriculum</h4>
                   <ul className="curriculum-list">
                     <li>
@@ -259,8 +260,8 @@ const Content = () => {
                       </ul>
                     </li>
                   </ul>
-                </div>
-                <div className="" id="instructor">
+                </div> */}
+                {/* <div className="" id="instructor">
                   <h4>Instructor</h4>
                   <div className="instructor-bx">
                     <div className="instructor-author">
@@ -340,8 +341,8 @@ const Content = () => {
                       </p>
                     </div>
                   </div>
-                </div>
-                <div className="" id="reviews">
+                </div> */}
+                {/* <div className="" id="reviews">
                   <h4>Reviews</h4>
 
                   <div className="review-bx">
@@ -449,14 +450,14 @@ const Content = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
         </div>
       </div>}
       {
-        isLoading && <Spinner animation="border" />
+        isLoading && <div className="text-center my-5" > <Spinner animation="border" /></div> 
       }
     </div>
   );

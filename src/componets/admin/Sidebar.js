@@ -50,11 +50,9 @@ const Sidebar = ({ setIsActive, isActive }) => {
                   <i class="ti-user"></i>
                 </span>
                 <span class="ttr-label">My Profile</span>
-                <span class="ttr-arrow-icon">
-                  <i class="fa fa-angle-down"></i>
-                </span>
+               
               </Link>
-              <ul>
+              {/* <ul>
                 <li>
                   <a href="user-profile.html" class="ttr-material-button">
                     <span class="ttr-label">User Profile</span>
@@ -66,7 +64,7 @@ const Sidebar = ({ setIsActive, isActive }) => {
                   </a>
                 </li>
 
-              </ul>
+              </ul> */}
             </li>
             <li class="ttr-seperate"></li>
           </ul>

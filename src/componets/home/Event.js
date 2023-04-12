@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Slider from 'react-slick';
 import { allEvents } from '../../fakeData/event';
+import { Link } from 'react-router-dom';
 const Event = () => {
 	const [events, setEvents] = useState([])
 	useEffect(() => {
@@ -48,7 +49,7 @@ const Event = () => {
 							</div>
 						</div>
 						<div className="event-info">
-							<h4 className="event-title"><a href="#">Education Autumn Tour 2019</a></h4>
+							<h4 className="event-title"><Link to={`/events/${event._id}`}>{event.name}</Link></h4>
 							<ul className="media-post">
 								<li><a href="#"><i className="fa fa-clock-o"></i> {event.time}</a></li>
 								<li><a href="#"><i className="fa fa-map-marker"></i> {event.location}</a></li>

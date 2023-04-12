@@ -31,6 +31,7 @@ import DashboardLayout from "./componets/admin/DashboardLayout";
 import Userprofile from "./componets/admin/Userprofile";
 import useFirebase from "./hooks/useFirebase";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Eventdetails from "./pages/eventdetails/Eventdetails";
 
 function App() {
   let location = useLocation();
@@ -57,22 +58,23 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/courses" element={<AllCourses />} />
         <Route path="/courses/:courseId" element={<CourseDetail />} />
+        <Route path="/events/:eventId" element={<Eventdetails />} />
         <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
         <Route
           path="/dashboard/course"
           element={
-            <DashboardLayout>
+            // <DashboardLayout>
               <Course />
-            </DashboardLayout>
+            // </DashboardLayout>
           }
         />
         <Route
           path="/dashboard/MyProfile"
           element={
-            <DashboardLayout>
+            // <DashboardLayout>
 
               <Userprofile />
-            </DashboardLayout>
+            // </DashboardLayout>
           }
         />
         {/* <Route path="/dashboard" element={

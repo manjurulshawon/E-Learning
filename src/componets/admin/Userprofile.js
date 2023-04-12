@@ -1,7 +1,9 @@
 import React from "react";
+import DashboardLayout from "./DashboardLayout";
 
 const Userprofile = () => {
   return (
+    <DashboardLayout>
     <main class="ttr-wrapper">
       <div class="container-fluid">
         <div class="db-breadcrumb">
@@ -231,6 +233,7 @@ const Userprofile = () => {
         </div>
       </div>
     </main>
+    </DashboardLayout>
   );
 };
 
