@@ -11,63 +11,40 @@ import Header from '../componets/home/Header';
 import useAuth from '../hooks/useAuth';
 
 const Home = () => {
-	const {user} = useAuth()
-  return (
-    <div className="page-wraper">
-{/* <div id="loading-icon-bx"></div> */}
-	{/* <!-- Header Top ==== --> */}
-    {/* <!-- Header Top END ==== --> */}
-    {/* <!-- Content --> */}
-    <div className="page-content bg-white">
-        {/* <!-- Main Slider --> */}
-		
-        <Slider />
+	const { user } = useAuth()
+	return (
+		<div className="page-wraper">
+			<div className="page-content bg-white">
+
+			<Header />
+				<Slider />
 
 
-        {/* <!-- Main Slider --> */}
-		<div className="content-block">
-            
-			{/* <!-- Our Services --> */}
+				{/* <!-- Main Slider --> */}
+				<div className="content-block">
 
 
-			{/* <Services /> */}
+
+					<Courses />
+
+					<Form />
 
 
-            {/* <!-- Our Services END --> */}
-			
-			{/* <!-- Popular Courses --> */}
+					<Event />
 
-			<Courses />
 
-			{/* <!-- Popular Courses END --> */}
-			
-			{/* <!-- Form --> */}
-			
-			<Form />
+					<Testimonial />
+					<News />
 
-			{/* <!-- Form END --> */}
-			
-			<Event />
-			
-			{/* <!-- Testimonials --> */}
-			
-			<Testimonial />
-			{/* <!-- Testimonials END --> */}
-			
-			{/* <!-- Recent News --> */}
-			<News />
-			{/* <!-- Recent News End --> */}
-			
-        </div>
-		{/* <!-- contact area END --> */}
-    </div>
-    {/* <!-- Content END-->
+				</div>
+			</div>
+			{/* <!-- Content END-->
 	<!-- Footer ==== --> */}
-    {/* <Footer /> */}
-    {/* <!-- Footer END ==== --> */}
-    <button className="back-to-top fa fa-chevron-up" ></button>
-</div>
-  )
+			{/* <Footer /> */}
+			{/* <!-- Footer END ==== --> */}
+			<button className="back-to-top fa fa-chevron-up" ></button>
+		</div>
+	)
 }
 
 export default Home

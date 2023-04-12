@@ -3,7 +3,7 @@ import { allCourses } from "../../fakeData/allCourses";
 import { Link, useNavigate } from "react-router-dom";
 const Content = (props) => {
   console.log("co", props.course);
-  const { course_name, description, picture, _id } = props.course;
+  const { course_name, description, picture, _id ,price } = props.course;
   const navigate = useNavigate();
   const courseDetails = (_id) => {
     navigate(`/courses/${_id}`);
@@ -17,9 +17,9 @@ const Content = (props) => {
         <div class="cours-bx">
           <div class="action-box">
             <img src={picture} alt="" />
-            <a href="#" class="btn">
+            {/* <a href="#" class="btn">
               Read More
-            </a>
+            </a> */}
           </div>
           <div class="info-bx text-center">
             <h5>
@@ -48,9 +48,9 @@ const Content = (props) => {
                 </li>
               </ul>
             </div>
-            <div class="price">
-              <del>$190</del>
-              <h5>$120</h5>
+            <div class="price mt-2">
+              {/* <del>$190</del> */}
+              <h5>৳ {price.original}</h5>
             </div>
           </div>
           {/* </div>

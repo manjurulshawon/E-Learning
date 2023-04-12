@@ -4,7 +4,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import About from "./pages/About";
 import Blog from "./pages/Blog";
 import "./assets/css/style.css";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom';
+
 import Header from "./componets/home/Header";
 import CourseDetails from "./componets/courseDetails/CourseDetails";
 import Login from "./pages/Login";
@@ -28,18 +29,25 @@ import Dashboard from "./componets/admin/Dashboard";
 import Course from "./componets/admin/Course";
 import DashboardLayout from "./componets/admin/DashboardLayout";
 import Userprofile from "./componets/admin/Userprofile";
+import useFirebase from "./hooks/useFirebase";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   let location = useLocation();
-  console.log(location);
+  const { user } = useFirebase()
+  // history.navigate = useNavigate();
+  // history.location = useLocation();
+  console.log("location", location)
+  console.log("location", process.env.REACT_APP_API_BASE_URL)
   return (
     <AuthProvider>
-      {location.pathname == "/login" ||
-      location.pathname == "/register" ||
-      location.pathname == "/dashboard" ||
-      "/dashboard/course" ? null : (
+      {/* <Header /> */}
+      {/* {location.pathname == "/login" ||
+        location.pathname == "/register" ||
+        location.pathname == "/dashboard" ||
+        location.pathname == "/dashboard/course" ? null : (
         <Header />
-      )}
+      )} */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -49,7 +57,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/courses" element={<AllCourses />} />
         <Route path="/courses/:courseId" element={<CourseDetail />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
         <Route
           path="/dashboard/course"
           element={
@@ -62,7 +70,7 @@ function App() {
           path="/dashboard/MyProfile"
           element={
             <DashboardLayout>
-             
+
               <Userprofile />
             </DashboardLayout>
           }

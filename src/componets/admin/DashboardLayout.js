@@ -12,7 +12,7 @@ const DashboardLayout = ({ children }) => {
         <Header setIsActive={setIsActive} isActive={isActive} />
         <Sidebar setIsActive={setIsActive} isActive={isActive} />
         {/* <Course /> */}
-        <Userprofile />
+        {/* <Userprofile /> */}
         {children}
       </div>
     </>

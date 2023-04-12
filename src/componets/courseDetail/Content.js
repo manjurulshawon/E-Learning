@@ -1,18 +1,33 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { allCourses } from "../../fakeData/allCourses";
+import { Spinner } from "react-bootstrap";
 const Content = () => {
   const { courseId } = useParams();
-  const [course, setCourse] = useState([]);
+  const [data, setData] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
   console.log("idc", courseId);
+  console.log("courses", data.length);
   // let data = allCourses.filter(course=> course._id == courseId)
-  let data = allCourses.find((course) => course._id == courseId);
-  console.log("darta", data);
+  // let data = allCourses.find((course) => course._id == courseId);
+  useEffect(() => {
+
+    fetch(`${process.env.REACT_APP_API_BASE_URL}/courses/${courseId}`)
+      .then(res => res.json())
+      .then(data => {
+        console.log("courses", data);
+
+        setData(data)
+        setIsLoading(false)
+      })
+
+  }, [data])
+  // console.log("darta", data);
   return (
     <div className="page-content bg-white">
       <div
         className="page-banner ovbl-dark"
-        // style={{backgroundImage:'url(assets/images/banner/banner2.jpg)'}}
+      // style={{backgroundImage:'url(assets/images/banner/banner2.jpg)'}}
       >
         <div className="container">
           <div className="page-banner-entry">
@@ -21,7 +36,7 @@ const Content = () => {
         </div>
       </div>
 
-      <div className="content-block">
+    { !isLoading &&  <div className="content-block">
         <div className="section-area section-sp1">
           <div className="container">
             <div className="row d-flex flex-row-reverse">
@@ -164,22 +179,13 @@ const Content = () => {
                     <div className="col-md-12 col-lg-8">
                       <h5 className="m-b5">Course Description</h5>
                       <p>{data.description.description}</p>
-                      <h5 className="m-b5">Certification</h5>
-                      <p>
-                        Lorem Ipsum is simply dummy text of the printing and
-                        typesetting industry. Lorem Ipsum has been the
-                        industry’s standard dummy text ever since the 1500s,
-                        when an unknown printer took a galley of type and
-                        scrambled it to make a type specimen book. It has
-                        survived not only five centuries, but also the leap into
-                        electronic typesetting, remaining essentially unchanged.
-                      </p>
+                     
                       <h5 className="m-b5">Learning Outcomes</h5>
                       <ul className="list-checked primary">
                         {data.topics.map((topic) => (
                           <li>{topic}</li>
                         ))}
-                        {/* <li>Over 37 lectures and 55.5 hours of content!</li> */}
+
                       </ul>
                     </div>
                   </div>
@@ -448,7 +454,10 @@ const Content = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div>}
+      {
+        isLoading && <Spinner animation="border" />
+      }
     </div>
   );
 };

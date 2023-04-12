@@ -1,7 +1,16 @@
 import React from "react";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import useFirebase from "../../hooks/useFirebase";
+import useAuth from "../../hooks/useAuth";
 
 const Content = () => {
+  const { registerWithEmailAndPassword } = useAuth()
+  const { register, handleSubmit } = useForm();
+  const onSubmit = data => {
+    registerWithEmailAndPassword(data)
+  }
+
   return (
     <div className="account-form d-flex flex-row ">
       <div
@@ -22,17 +31,17 @@ const Content = () => {
               Already Have Account ? <Link to="/login">Login</Link>
             </p>
           </div>
-          <form className="contact-bx">
+          <form className="contact-bx" onSubmit={handleSubmit(onSubmit)}>
             <div className="row placeani">
               <div className="col-lg-12">
                 <div className="form-group">
                   <div className="input-group">
                     <label>Your Name</label>
                     <input
-                      name="dzName"
                       type="text"
                       required=""
                       className="form-control"
+                      {...register("name", { required: true })}
                     />
                   </div>
                 </div>
@@ -42,7 +51,7 @@ const Content = () => {
                   <div className="input-group">
                     <label>Your Email Address</label>
                     <input
-                      name="dzName"
+                      {...register("email", { required: true })}
                       type="email"
                       required=""
                       className="form-control"
@@ -55,10 +64,10 @@ const Content = () => {
                   <div className="input-group">
                     <label>Your Password</label>
                     <input
-                      name="dzEmail"
                       type="password"
                       className="form-control"
                       required=""
+                      {...register("password", { required: true })}
                     />
                   </div>
                 </div>
@@ -80,7 +89,7 @@ const Content = () => {
                     <i className="fa fa-facebook"></i>Facebook
                   </a>
                   <a className="btn flex-fill m-l5 google-plus" href="#">
-                    <i className="fa fa-google-plus"></i>Google 
+                    <i className="fa fa-google-plus"></i>Google
                   </a>
                 </div>
               </div>

@@ -65,6 +65,7 @@ const Sidebar = ({ setIsActive, isActive }) => {
                     <span class="ttr-label">Teacher Profile</span>
                   </a>
                 </li>
+
               </ul>
             </li>
             <li class="ttr-seperate"></li>

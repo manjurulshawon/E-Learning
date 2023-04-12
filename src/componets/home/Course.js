@@ -7,13 +7,13 @@ const Course = ({course}) => {
   // console.log(course)
     const {picture,price, disPrice,reviews,course_name,subtitle,_id} = course
   return (
-    <div className="item me-2">
+    <div className="item me-2 my-3">
       <div className="cours-bx" style={{boxShadow:'0 0 3px 0 rgba(29,25,0,0.1)'}}>
         <div className="action-box">
           <img src={picture} alt="" />
-          <a href="#" className="btn text-white">
+          {/* <a href="#" className="btn text-white">
             Read More
-          </a>
+          </a> */}
         </div>
         <div className="info-bx text-center">
           <h5>
@@ -43,8 +43,8 @@ const Course = ({course}) => {
             </ul>
           </div>
           <div className="price">
-            <del><TbCurrencyTaka /> {price.original}</del>
-            <h5><TbCurrencyTaka />{price.discount}</h5>
+            {/* <del><TbCurrencyTaka /> {price.original}</del> */}
+            <h5 className="mt-3"><TbCurrencyTaka />{price.discount}</h5>
           </div>
         </div>
       </div>

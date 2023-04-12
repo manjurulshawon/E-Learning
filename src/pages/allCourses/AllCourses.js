@@ -1,17 +1,44 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // import Content from "../../componets/allCourses/Content";
 import { allCourses } from "../../fakeData/allCourses";
 import AllCoursesBanner from "./AllCoursesBanner";
 import Content from "../../componets/AllCourses/Content";
+import Header from "../../componets/home/Header";
 const AllCourses = () => {
-  const [filterCourse,setFilterCourse]=useState(allCourses)
+  const [course, setCourse] = useState([])
+  const [filterCourse, setFilterCourse] = useState([])
   console.log("allCourses", filterCourse);
-  const searchHandler =(e)=>{
+  useEffect(() => {
 
+    fetch(`${process.env.REACT_APP_API_BASE_URL}/courses`)
+      .then(res => res.json())
+      .then(data => {
+        console.log("courses", data);
+        setCourse(data)
+        setFilterCourse(data)
+      })
+
+  }, [])
+ const searchHandler=(e)=>{
+  console.log(e.target.value);
+  let data = course.filter(dt => dt.course_name.toLowerCase().indexOf(e.target.value.toLowerCase()) !==-1)
+  setFilterCourse(data)
+ }
+  const searchClickHandler = (e) => {
+    console.log("e", e);
+    if (e == 'all') {
+      setFilterCourse(course)
+      
+    } else {
+      
+      let data = course.filter(dt => dt.course_type == e)
+      setFilterCourse(data)
+    }
   }
   return (
     <div>
       <div class="page-content bg-white">
+      <Header />
         <AllCoursesBanner />
 
         <div class="content-block">
@@ -22,12 +49,13 @@ const AllCourses = () => {
                   <div class="widget courses-search-bx placeani">
                     <div class="form-group">
                       <div class="input-group">
-                        <label>Search Courses</label>
+                        {/* <label>Search Courses</label> */}
                         <input
-                          name="dzName"
+                          placeholder="Search Course"
                           type="text"
-                          required
+                          
                           class="form-control"
+                          onChange={searchHandler}
                         />
                       </div>
                     </div>
@@ -35,20 +63,23 @@ const AllCourses = () => {
                   <div class="widget widget_archive">
                     <h5 class="widget-title style-1">All Courses</h5>
                     <ul>
-                      <li class="active">
-                        <a href="#">General</a>
+                      <li className="curserPointer" onClick={() => searchClickHandler("all")}>
+                        All 
                       </li>
-                      <li>
-                        <a href="#">IT & Software</a>
+                      <li className="curserPointer" onClick={() => searchClickHandler("general")}>
+                        General
                       </li>
-                      <li>
-                        <a href="#">Photography</a>
+                      <li className="curserPointer" onClick={() => searchClickHandler("itAndSoft")}>
+                        IT & Software
                       </li>
-                      <li>
-                        <a href="#">Programming Language</a>
+                      <li className="curserPointer" onClick={() => searchClickHandler("photography")}>
+                      Photography
                       </li>
-                      <li>
-                        <a href="#">Technology</a>
+                      <li className="curserPointer" onClick={() => searchClickHandler("programmingLanguage")}>
+                        Programming Language
+                      </li>
+                      <li className="curserPointer" onClick={() => searchClickHandler("technology")}>
+                       Technology
                       </li>
                     </ul>
                   </div>
@@ -57,7 +88,7 @@ const AllCourses = () => {
                       {/* <img src="assets/images/adv/adv.jpg" alt="" />  */}
                     </a>
                   </div>
-                  <div class="widget recent-posts-entry widget-courses">
+                  {/* <div class="widget recent-posts-entry widget-courses">
                     <h5 class="widget-title style-1">Recent Courses</h5>
                     <div class="widget-post-bx">
                       <div class="widget-post clearfix">
@@ -114,7 +145,7 @@ const AllCourses = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
                 <div class="col-lg-9 col-md-8 col-sm-12">
                   <div class="row">
@@ -168,7 +199,7 @@ const AllCourses = () => {
                   </div>
                 </div> */}
                 {/* <div className="col-lg-3"> */}
-              
+
                 {/* </div> */}
               </div>
             </div>

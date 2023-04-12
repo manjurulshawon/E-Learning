@@ -1,7 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Slider from 'react-slick';
 import { allEvents } from '../../fakeData/event';
 const Event = () => {
+	const [events, setEvents] = useState([])
+	useEffect(() => {
+
+		fetch(`${process.env.REACT_APP_API_BASE_URL}/events`)
+		  .then(res => res.json())
+		  .then(data => {
+			console.log("courses", data);
+			setEvents(data)
+			// setFilterCourse(data)
+		  })
+	
+	  }, [])
 	const settings = {
 		dots: true,
 		infinite: true,
@@ -23,7 +35,7 @@ const Event = () => {
 					<Slider {...settings}>
          
 			{
-				allEvents.map((event)=>  <div> <div className="item mx-2	">
+				events.map((event)=>  <div> <div className="item mx-2	my-2">
 				<div className="event-bx">
 					<div className="action-box">
 						<img src={event.picture} alt="" />
@@ -102,9 +114,9 @@ const Event = () => {
 						</div>
 					</div> */}
 					</div>
-					<div className="text-center mt-5">
+					{/* <div className="text-center mt-5">
 						<a href="#" className="btn">View All Event</a>
-					</div>
+					</div> */}
 				</div>
 			</div>
   )
