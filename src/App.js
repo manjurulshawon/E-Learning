@@ -32,6 +32,10 @@ import Userprofile from "./componets/admin/Userprofile";
 import useFirebase from "./hooks/useFirebase";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Eventdetails from "./pages/eventdetails/Eventdetails";
+import Enrollment from "./componets/admin/Enrollment";
+import Users from "./componets/admin/Users";
+import MyCourse from "./componets/user/MyCourse";
+import AdminRoute from "./componets/adminRoute/AdminRoute";
 
 function App() {
   let location = useLocation();
@@ -60,6 +64,9 @@ function App() {
         <Route path="/courses/:courseId" element={<CourseDetail />} />
         <Route path="/events/:eventId" element={<Eventdetails />} />
         <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+        <Route path="/dashboard/enrole" element={<AdminRoute><Enrollment /></AdminRoute>} />
+        <Route path="/dashboard/users" element={<PrivateRoute><Users /></PrivateRoute>} />
+        <Route path="/dashboard/myCourse" element={<PrivateRoute><MyCourse /></PrivateRoute>} />
         <Route
           path="/dashboard/course"
           element={
@@ -87,7 +94,7 @@ function App() {
         {/* <PrivateRoute path="/dashboard" element={<Dashboard />}></PrivateRoute> */}
         <Route path="*" element={<Error />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
       {/* <CourseDetail /> */}
 
       {/* <InstructorProfile />

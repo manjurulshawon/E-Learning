@@ -13,7 +13,7 @@ const Header = ({ isActive, setIsActive }) => {
           class="ttr-toggle-sidebar ttr-material-button  d-flex align-items-center justify-content-center"
           onClick={() => setIsActive(!isActive)}
         >
-          {isActive ? <VscListSelection size={30} /> : <RxCross2 size={30} />}
+          {!isActive ? <VscListSelection size={30} /> : <RxCross2 size={30} />}
         </div>
 
         <div class="ttr-logo-box">

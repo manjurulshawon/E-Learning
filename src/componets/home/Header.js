@@ -56,9 +56,9 @@ const Header = () => {
                       Dashboard <i className="fa fa-chevron-down"></i>
                     </NavLink>
                     <ul className="sub-menu">
-                      <li>
+                      {/* <li>
                         <NavLink to={"/dashboard"}>Admin</NavLink>
-                      </li>
+                      </li> */}
                       <li>
                         <NavLink to={"/dashboard"}>My Dashboard</NavLink>
                       </li>

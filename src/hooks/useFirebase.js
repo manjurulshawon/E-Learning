@@ -16,6 +16,7 @@ import { toast } from "react-toastify";
 
 const useFirebase = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [admin, setAdmin] = useState(false);
   const [user, setUser] = useState({});
 
   const navigation = useNavigate();
@@ -108,7 +109,12 @@ const useFirebase = () => {
 
 
   }
-
+ // check admin 
+ useEffect(()=>{
+  fetch(`${process.env.REACT_APP_API_BASE_URL}/users/${user.email}`)
+  .then(res=>res.json())
+  .then(data=>setAdmin(data.admin))
+},[user.email])
   const logout = () => {
     signOut(auth).then(() => {
       setIsLoading(true);
@@ -118,6 +124,7 @@ const useFirebase = () => {
   };
   return {
     googleSignIn,
+    admin,
     user,
     logout,
     isLoading,
