@@ -27,7 +27,7 @@ const Content = () => {
   return (
     <div className="page-content bg-white">
       <div
-        className="page-banner ovbl-dark"
+        className="page-banner backgroudGray"
       // style={{backgroundImage:'url(assets/images/banner/banner2.jpg)'}}
       >
         <div className="container">
@@ -121,7 +121,7 @@ const Content = () => {
                 <div className="courses-post">
                   <div className="ttr-post-media media-effect">
                     <a href="">
-                      <img src="assets/images/blog/default/thum1.jpg" alt="" />
+                      <img src={data.picture} alt="" />
                     </a>
                   </div>
                   <div className="ttr-post-info">

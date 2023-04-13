@@ -4,6 +4,7 @@ import { allEvents } from '../../fakeData/event';
 import { Link } from 'react-router-dom';
 const Event = () => {
 	const [events, setEvents] = useState([])
+	const [isLoading, setIsLoading] = useState(true);
 	useEffect(() => {
 
 		fetch(`${process.env.REACT_APP_API_BASE_URL}/events`)
@@ -11,6 +12,7 @@ const Event = () => {
 		  .then(data => {
 			console.log("courses", data);
 			setEvents(data)
+			setIsLoading(false)
 			// setFilterCourse(data)
 		  })
 	
@@ -32,7 +34,7 @@ const Event = () => {
 							<p className="m-b0">Upcoming Education Events To Feed Brain. </p>
 						</div>
 					</div>
-					<div className="row">
+			{	!isLoading &&	<div className="row">
 					<Slider {...settings}>
          
 			{
@@ -114,7 +116,7 @@ const Event = () => {
 							</div>
 						</div>
 					</div> */}
-					</div>
+					</div>}
 					{/* <div className="text-center mt-5">
 						<a href="#" className="btn">View All Event</a>
 					</div> */}

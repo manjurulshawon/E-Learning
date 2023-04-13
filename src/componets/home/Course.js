@@ -5,12 +5,12 @@ import { NavLink } from "react-router-dom";
 
 const Course = ({course}) => {
   // console.log(course)
-    const {picture,price, disPrice,reviews,course_name,subtitle,_id} = course
+    const {picture,price, disPrice,reviews,course_name,description,_id} = course
   return (
-    <div className="item me-2 my-3">
+    <div className="item me-2 my-3 col-10" >
       <div className="cours-bx" style={{boxShadow:'0 0 3px 0 rgba(29,25,0,0.1)'}}>
         <div className="action-box">
-          <img src={picture} alt="" />
+          <img style={{height:"280px",objectFit: "cover"}} src={picture} alt="" />
           {/* <a href="#" className="btn text-white">
             Read More
           </a> */}
@@ -19,7 +19,7 @@ const Course = ({course}) => {
           <h5>
             <NavLink to={`/courses/${_id}`}>{course_name}</NavLink>
           </h5>
-          <span>{subtitle}</span>
+          <span>{description.short_description}</span>
         </div>
         <div className="cours-more-info">
           <div className="review">

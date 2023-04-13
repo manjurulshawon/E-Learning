@@ -4,8 +4,8 @@ const Content = () => {
   return (
     <div className="page-content bg-white">
       <div
-        className="page-banner ovbl-dark"
-        style={{ backgroundImage: "url(assets/images/banner/banner3.jpg)" }}
+        className="page-banner backgroudGray"
+        // style={{ backgroundImage: "url(assets/images/banner/banner3.jpg)" }}
       >
         <div className="container">
           <div className="page-banner-entry">

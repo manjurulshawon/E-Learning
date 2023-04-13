@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -10,17 +11,15 @@ const Footer = () => {
 						<div className="pt-logo mr-auto">
 							<a href="index.html"><img src="assets/images/logo-white.png" alt="" /></a>
 						</div>
-						<div className="pt-social-link">
+						{/* <div className="pt-social-link">
 							<ul className="list-inline m-a0">
 								<li><a href="#" className="btn-link"><i className="fa fa-facebook"></i></a></li>
 								<li><a href="#" className="btn-link"><i className="fa fa-twitter"></i></a></li>
 								<li><a href="#" className="btn-link"><i className="fa fa-linkedin"></i></a></li>
 								<li><a href="#" className="btn-link"><i className="fa fa-google-plus"></i></a></li>
 							</ul>
-						</div>
-						<div className="pt-btn-join">
-							<a href="#" className="btn ">Join Now</a>
-						</div>
+						</div> */}
+						
 					</div>
 				</div>
 			</div>
@@ -31,7 +30,7 @@ const Footer = () => {
                             <h5 className="footer-title">Sign Up For A Newsletter</h5>
 							<p className="text-capitalize m-b20">Weekly Breaking news analysis and cutting edge advices on job searching.</p>
                             <div className="subscribe-form m-b20">
-								<form className="subscription-form" action="http://educhamp.themetrades.com/demo/assets/script/mailchamp.php" method="post">
+								{/* <form className="subscription-form" action="http://educhamp.themetrades.com/demo/assets/script/mailchamp.php" method="post">
 									<div className="ajax-message"></div>
 									<div className="input-group">
 										<input name="email" required="required"  className="form-control" placeholder="Your Email Address" type="email" />
@@ -39,7 +38,7 @@ const Footer = () => {
 											<button name="submit" value="Submit" type="submit" className="btn"><i className="fa fa-arrow-right"></i></button>
 										</span> 
 									</div>
-								</form>
+								</form> */}
 							</div>
                         </div>
                     </div>
@@ -47,12 +46,12 @@ const Footer = () => {
 						<div className="row">
 							<div className="col-4 col-lg-4 col-md-4 col-sm-4">
 								<div className="widget footer_widget">
-									<h5 className="footer-title">Company</h5>
+									<h5 className="footer-title">Quick Links</h5>
 									<ul>
-										<li><a href="index.html">Home</a></li>
-										<li><a href="about-1.html">About</a></li>
+										<li><Link to="/">Home</Link></li>
+										<li><Link to="/about">About</Link></li>
 										
-										<li><a href="contact-1.html">Contact</a></li>
+										<li><Link to="/contact">Contact</Link></li>
 									</ul>
 								</div>
 							</div>
@@ -60,10 +59,10 @@ const Footer = () => {
 								<div className="widget footer_widget">
 									<h5 className="footer-title">Get In Touch</h5>
 									<ul>
-										<li><a href="http://educhamp.themetrades.com/admin/index.html">Dashboard</a></li>
-										<li><a href="blog-classic-grid.html">Blog</a></li>
+										<li><Link to="/dashboard">Dashboard</Link></li>
+										{/* <li><a href="blog-classic-grid.html">Blog</a></li> */}
 									
-										<li><a href="event.html">Event</a></li>
+										{/* <li><a href="event.html">Event</a></li> */}
 									</ul>
 								</div>
 							</div>
@@ -71,8 +70,8 @@ const Footer = () => {
 								<div className="widget footer_widget">
 									<h5 className="footer-title">Courses</h5>
 									<ul>
-										<li><a href="courses.html">Courses</a></li>
-										<li><a href="courses-details.html">Details</a></li>
+										<li><Link to="/courses">Courses</Link></li>
+										{/* <li><a href="courses-details.html">Details</a></li> */}
 										
 									</ul>
 								</div>

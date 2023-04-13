@@ -5,17 +5,17 @@ import useFirebase from "../../hooks/useFirebase";
 import useAuth from "../../hooks/useAuth";
 
 const Content = () => {
-  const { registerWithEmailAndPassword } = useAuth()
+  const { registerWithEmailAndPassword } = useAuth();
   const { register, handleSubmit } = useForm();
-  const onSubmit = data => {
-    registerWithEmailAndPassword(data)
-  }
+  const onSubmit = (data) => {
+    registerWithEmailAndPassword(data);
+  };
 
   return (
     <div className="account-form d-flex flex-row ">
       <div
         className="account-head"
-        style={{ backgroundImage: "url(assets/images/background/bg2.jpg)" }}
+        // style={{ backgroundImage: "url(assets/images/background/bg2.jpg)" }}
       >
         <Link to="/">
           <img src="assets/images/logo-white-2.png" alt="" />
@@ -36,7 +36,7 @@ const Content = () => {
               <div className="col-lg-12">
                 <div className="form-group">
                   <div className="input-group">
-                    <label>Your Name</label>
+                    {/* <label>Your Name</label> */}
                     <input
                       type="text"
                       required=""
@@ -49,7 +49,7 @@ const Content = () => {
               <div className="col-lg-12">
                 <div className="form-group">
                   <div className="input-group">
-                    <label>Your Email Address</label>
+                    {/* <label>Your Email Address</label> */}
                     <input
                       {...register("email", { required: true })}
                       type="email"
@@ -62,7 +62,7 @@ const Content = () => {
               <div className="col-lg-12">
                 <div className="form-group">
                   <div className="input-group">
-                    <label>Your Password</label>
+                    {/* <label>Your Password</label> */}
                     <input
                       type="password"
                       className="form-control"

@@ -4,6 +4,7 @@ import Sidebar from "./Sidebar";
 import { useState } from "react";
 import Course from "./Course";
 import Userprofile from "./Userprofile";
+import Coursefrom from "./Coursefrom";
 const DashboardLayout = ({ children }) => {
   const [isActive, setIsActive] = useState(true);
   return (

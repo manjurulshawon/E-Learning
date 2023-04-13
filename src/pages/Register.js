@@ -5,7 +5,7 @@ import Header from '../componets/home/Header'
 const Register = () => {
   return (
     <>
-    <Header />
+    {/* <Header /> */}
     <Content />
     </>
   )

@@ -66,20 +66,20 @@ export const allCourses = [
   },
   {
     _id: "642521d42e28f171bb0be181",
-    course_name: "The Complete PHP Bootcamp From Zero to Hero in PHP",
+    course_name: " Web Development",
     description: {
       short_description:
-        "Learn Python like a Professional  Start from the basics and go all the way to creating your own applications and games",
+        "Become a Full-Stack Web Developer with just ONE course. HTML, CSS, Javascript, Node, React, MongoDB, Web3 and DApps",
       description:
-        "Become a Python Programmer and learn one of employer's most requested skills of 2023! This is the most comprehensive, yet straight-forward, course for the Python programming language on Udemy! Whether you have never programmed before, already know basic syntax, or want to learn about the advanced features of Python, this course is for you! In this course we will teach you Python 3.With over 100 lectures and more than 21 hours of video this comprehensive course leaves no stone unturned! This course includes quizzes, tests, coding exercises and homework assignments as well as 3 major projects to create a Python project portfolio!",
+        "Build 16 web development projects for your portfolio, ready to apply for junior developer jobs,After the course you will be able to build ANY website you want.",
     },
     price: {
-      original: 84.99,
-      discount: 16.99,
+      original: 1500,
+      discount: 300,
     },
-    rating: 457372,
+    rating: 4.5,
     picture: "http://placehold.it/32x32",
-    created_by: "Jose Portilla",
+    created_by: "",
     duration: "22 h",
     course_content: {
       sections: 23,
@@ -88,12 +88,12 @@ export const allCourses = [
     },
     language: "English",
     topics: [
-      "   Command Line Basics",
-      "Installing Python",
-      "Running Python Code",
-      "Strings",
-      "Lists ",
-      "Dictionaries",
+      "Introduction to HTML",
+      "Introduction to CSS",
+      "Javascript",
+      "React js",
+      "Node Js",
+      "MongoDB",
     ],
   },
   {

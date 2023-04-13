@@ -4,8 +4,9 @@ const AllCoursesBanner = () => {
   return (
     <>
       <div
-        class="page-banner ovbl-dark"
+        class="page-banner backgroudGray"
         // style={{ backgroundImage: "url(assets/images/banner/banner3.jpg)" }}
+        // style={{backgroundColor: "gray"}}
       >
         <div class="container">
           <div class="page-banner-entry">

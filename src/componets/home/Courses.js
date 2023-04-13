@@ -5,6 +5,7 @@ import {products} from "../../products"
 import { allCourses } from '../../fakeData/allCourses';
 const Courses = () => {
 	 const [courses, setCourses] =useState([])
+	 const [isLoading, setIsLoading] =useState(true)
 
 	 useEffect(() => {
 
@@ -13,6 +14,7 @@ const Courses = () => {
 		  .then(data => {
 			console.log("courses", data);
 			setCourses(data)
+			setIsLoading(false)
 			// setFilterCourse(data)
 		  })
 	
@@ -24,46 +26,7 @@ const Courses = () => {
 		slidesToShow: 3,
 		slidesToScroll: 2
 	  };
-	//   const courses = allCourses.slice(0,3)
-
-	//   const courses = [{
-	// 	title: "Introduction EduChamp - LMS plugin",
-	// 	subtitle: "Programming",
-	// 	reviews: 3,
-	// 	disPrice: 500,
-	// 	price: 650,
-	// 	img:"assets/images/courses/pic1.jpg"
-
-	//   },
-	//   {
-	// 	title: "Introduction EduChamp - LMS plugin",
-	// 	subtitle: "Programming",
-	// 	reviews: 3,
-	// 	disPrice: 120,
-	// 	price: 190,
-	// 	img:"assets/images/courses/pic2.jpg"
-
-	//   },
-	//   {
-	// 	title: "Introduction EduChamp - LMS plugin",
-	// 	subtitle: "Programming",
-	// 	reviews: 3,
-	// 	disPrice: 120,
-	// 	price: 190,
-	// 	img:"assets/images/courses/pic3.jpg"
-
-	//   },
-	//   {
-	// 	title: "Introduction EduChamp - LMS plugin",
-	// 	subtitle: "Programming",
-	// 	reviews: 3,
-	// 	disPrice: 120,
-	// 	price: 190,
-	// 	img:"assets/images/courses/pic4.jpg"
-
-	//   }]
-	   
-	//   console.log(products)
+	
 
   return (
     <div className="section-area section-sp2 popular-courses-bx">
@@ -75,11 +38,11 @@ const Courses = () => {
 						</div>
 					</div>
 					<div className="row">
-					<div className="col-12 p-lr0">
+					{!isLoading && <div className="col-12 p-lr0">
 						<Slider {...settings} >
 							{courses.map((data,key)=><Course key={key} course={data}/>)}
 						</Slider>
-					</div>
+					</div>}
 					</div>
 				</div>
 			</div>

@@ -4,7 +4,7 @@ const Content = () => {
   return (
     <div className="page-content">
       <div
-        className="page-banner ovbl-dark"
+        className="page-banner backgroudGray"
         // style={{ backgroundImage: "url(assets/images/banner/banner2.jpg)" }}
       >
         <div className="container">
@@ -176,7 +176,7 @@ const Content = () => {
             </div>
           </div>
         </div>
-
+{/* 
         <div
           className="section-area section-sp2 bg-fix ovbl-dark join-bx text-center"
           style={{ backgroundmage: "url(assets/images/background/bg1.jpg)" }}
@@ -209,7 +209,7 @@ const Content = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div className="section-area section-sp2">
           <div className="container">
@@ -230,18 +230,18 @@ const Content = () => {
                   <div className="testimonial-thumb">
                     <img src="assets/images/testimonials/pic1.jpg" alt="" />
                   </div>
-                  <div className="testimonial-info">
+                  {/* <div className="testimonial-info">
                     <h5 className="name">Peter Packer</h5>
                     <p>-Art Director</p>
-                  </div>
-                  <div className="testimonial-content">
+                  </div> */}
+                  {/* <div className="testimonial-content">
                     <p>
                       Lorem Ipsum is simply dummy text of the printing and
                       typesetting industry. Lorem Ipsum has been the industry's
                       standard dummy text ever since the 1500s, when an unknown
                       printer took a galley of type...
                     </p>
-                  </div>
+                  </div> */}
                 </div>
               </div>
               <div className="item">
@@ -253,14 +253,14 @@ const Content = () => {
                     <h5 className="name">Peter Packer</h5>
                     <p>-Art Director</p>
                   </div>
-                  <div className="testimonial-content">
+                  {/* <div className="testimonial-content">
                     <p>
                       Lorem Ipsum is simply dummy text of the printing and
                       typesetting industry. Lorem Ipsum has been the industry's
                       standard dummy text ever since the 1500s, when an unknown
                       printer took a galley of type...
                     </p>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

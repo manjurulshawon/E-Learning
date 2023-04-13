@@ -1,5 +1,8 @@
-.curserPointer{
+.curserPointer {
   cursor: pointer;
+}
+.backgroudGray {
+  background-color: gray;
 }
 .App {
   text-align: center;

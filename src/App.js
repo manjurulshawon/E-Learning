@@ -65,6 +65,7 @@ function App() {
           element={
             // <DashboardLayout>
               <Course />
+              
             // </DashboardLayout>
           }
         />
