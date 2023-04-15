@@ -9,11 +9,13 @@ const DashboardLayout = ({ children }) => {
   const [isActive, setIsActive] = useState(true);
   return (
     <>
-      <div class={`ttr-pinned-sidebar ${isActive ? "ttr-opened-sidebar" : ""}`}>
+      <div
+        className={`ttr-pinned-sidebar ${isActive ? "ttr-opened-sidebar" : ""}`}
+        style={{ position: "relative" }}
+      >
         <Header setIsActive={setIsActive} isActive={isActive} />
         <Sidebar setIsActive={setIsActive} isActive={isActive} />
-        {/* <Course /> */}
-        {/* <Userprofile /> */}
+
         {children}
       </div>
     </>

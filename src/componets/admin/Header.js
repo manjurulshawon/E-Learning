@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import useFirebase from "../../hooks/useFirebase";
 
 const Header = ({ isActive, setIsActive }) => {
-  const {logout} = useFirebase()
+  const { logout, user } = useFirebase();
   return (
     <header class="ttr-header">
       <div class="ttr-header-wrapper">
@@ -40,10 +40,7 @@ const Header = ({ isActive, setIsActive }) => {
         <div class="ttr-header-menu">
           <ul class="ttr-header-navigation">
             <li>
-              <Link
-                to="/"
-                class="ttr-material-button ttr-submenu-toggle"
-              >
+              <Link to="/" class="ttr-material-button ttr-submenu-toggle">
                 HOME
               </Link>
             </li>
@@ -69,8 +66,16 @@ const Header = ({ isActive, setIsActive }) => {
         </div>
         <div class="ttr-header-right ttr-with-seperator">
           <ul class="ttr-header-navigation">
+            {user?.displayName && (
+              <li className="text-white mt-3 pt-1 mr-2 fw-bold">
+                {user.displayName}
+              </li>
+            )}
             <li>
-              <Link onClick={logout}  class="ttr-material-button ttr-search-toggle">
+              <Link
+                onClick={logout}
+                class="ttr-material-button ttr-search-toggle"
+              >
                 Logout
               </Link>
             </li>
@@ -177,7 +182,6 @@ const Header = ({ isActive, setIsActive }) => {
                 </ul>
               </div>
             </li> */}
-           
           </ul>
         </div>
 

@@ -9,9 +9,7 @@ const Header = () => {
     <header className="header rs-nav header-transparent">
       <div className="top-bar">
         <div className="container">
-          <div className="row d-flex justify-content-between">
-           
-          </div>
+          <div className="row d-flex justify-content-between"></div>
         </div>
       </div>
       <div className="sticky-header navbar-expand-lg">
@@ -23,7 +21,15 @@ const Header = () => {
                 <img src="assets/images/logo-white.png" alt="" />
               </NavLink>
             </div>
-          
+            {user?.displayName && (
+              <div class="secondary-menu">
+                <div class="secondary-inner">
+                  <ul>
+                    <li className="text-white">{user.displayName}</li>
+                  </ul>
+                </div>
+              </div>
+            )}
             <div
               className="menu-links navbar-collapse collapse justify-content-start"
               id="menuDropdown"
@@ -73,7 +79,6 @@ const Header = () => {
                   </li>
                 )}
               </ul>
-     
             </div>
             {/* <!-- Navigation Menu END ==== --> */}
           </div>

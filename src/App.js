@@ -4,7 +4,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import About from "./pages/About";
 import Blog from "./pages/Blog";
 import "./assets/css/style.css";
-import { Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom';
+import {
+  Routes,
+  Route,
+  Navigate,
+  useNavigate,
+  useLocation,
+} from "react-router-dom";
 
 import Header from "./componets/home/Header";
 import CourseDetails from "./componets/courseDetails/CourseDetails";
@@ -30,20 +36,21 @@ import Course from "./componets/admin/Course";
 import DashboardLayout from "./componets/admin/DashboardLayout";
 import Userprofile from "./componets/admin/Userprofile";
 import useFirebase from "./hooks/useFirebase";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import Eventdetails from "./pages/eventdetails/Eventdetails";
 import Enrollment from "./componets/admin/Enrollment";
 import Users from "./componets/admin/Users";
 import MyCourse from "./componets/user/MyCourse";
 import AdminRoute from "./componets/adminRoute/AdminRoute";
+import Quiz from "./componets/admin/Quiz";
 
 function App() {
   let location = useLocation();
-  const { user } = useFirebase()
+  const { user } = useFirebase();
   // history.navigate = useNavigate();
   // history.location = useLocation();
-  console.log("location", location)
-  console.log("location", process.env.REACT_APP_API_BASE_URL)
+  console.log("location", location);
+  console.log("location", process.env.REACT_APP_API_BASE_URL);
   return (
     <AuthProvider>
       {/* <Header /> */}
@@ -63,16 +70,44 @@ function App() {
         <Route path="/courses" element={<AllCourses />} />
         <Route path="/courses/:courseId" element={<CourseDetail />} />
         <Route path="/events/:eventId" element={<Eventdetails />} />
-        <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
-        <Route path="/dashboard/enrole" element={<AdminRoute><Enrollment /></AdminRoute>} />
-        <Route path="/dashboard/users" element={<PrivateRoute><Users /></PrivateRoute>} />
-        <Route path="/dashboard/myCourse" element={<PrivateRoute><MyCourse /></PrivateRoute>} />
+        <Route
+          path="/dashboard"
+          element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/dashboard/enrole"
+          element={
+            <PrivateRoute>
+              <Enrollment />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/dashboard/users"
+          element={
+            <PrivateRoute>
+              <Users />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/dashboard/myCourse"
+          element={
+            <PrivateRoute>
+              <MyCourse />
+            </PrivateRoute>
+          }
+        />
         <Route
           path="/dashboard/course"
           element={
             // <DashboardLayout>
-              <Course />
-              
+            <Course />
+
             // </DashboardLayout>
           }
         />
@@ -81,7 +116,16 @@ function App() {
           element={
             // <DashboardLayout>
 
-              <Userprofile />
+            <Userprofile />
+            // </DashboardLayout>
+          }
+        />
+        <Route
+          path="/dashboard/quiz"
+          element={
+            // <DashboardLayout>
+
+            <Quiz />
             // </DashboardLayout>
           }
         />
@@ -101,7 +145,7 @@ function App() {
       <ForgetPass /> */}
       <ToastContainer
         position="top-right"
-        autoClose={5000}
+        autoClose={1000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
