@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { allCourses } from "../../fakeData/allCourses";
-import { Spinner } from "react-bootstrap";
+import { Button, Spinner } from "react-bootstrap";
 import { TbCurrencyTaka } from "react-icons/tb";
 const Content = () => {
   const { courseId } = useParams();
@@ -12,23 +12,21 @@ const Content = () => {
   // let data = allCourses.filter(course=> course._id == courseId)
   // let data = allCourses.find((course) => course._id == courseId);
   useEffect(() => {
-
     fetch(`${process.env.REACT_APP_API_BASE_URL}/courses/${courseId}`)
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         console.log("courses", data);
 
-        setData(data)
-        setIsLoading(false)
-      })
-
-  }, [])
+        setData(data);
+        setIsLoading(false);
+      });
+  }, []);
   // console.log("darta", data);
   return (
     <div className="page-content bg-white">
       <div
         className="page-banner backgroudGray"
-      // style={{backgroundImage:'url(assets/images/banner/banner2.jpg)'}}
+        // style={{backgroundImage:'url(assets/images/banner/banner2.jpg)'}}
       >
         <div className="container">
           <div className="page-banner-entry">
@@ -37,161 +35,117 @@ const Content = () => {
         </div>
       </div>
 
-    { !isLoading &&  <div className="content-block">
-        <div className="section-area section-sp1">
-          <div className="container">
-            <div className="row d-flex flex-row-reverse">
-              <div className="col-lg-3 col-md-4 col-sm-12 m-b30">
-                <div className="course-detail-bx">
-                  <div className="course-price">
-                   
-                    <h4 className="price"> <TbCurrencyTaka /> {data.price.original}</h4>
-                  </div>
-                  <div className="course-buy-now text-center">
-                    <a href="" className="btn radius-xl text-uppercase">
-                      Buy Now This Courses
-                    </a>
-                  </div>
-                  <div className="teacher-bx">
-                    <div className="teacher-info">
-                      <div className="teacher-thumb">
-                        <img src="assets/images/testimonials/pic1.jpg" alt="" />
+      {!isLoading && (
+        <div className="content-block">
+          <div className="section-area section-sp1">
+            <div className="container">
+              <div className="row d-flex flex-row-reverse">
+                <div className="col-lg-3 col-md-4 col-sm-12 m-b30">
+                  <div className="course-detail-bx">
+                    <div className="course-price">
+                      <h4 className="price">
+                        {" "}
+                        <TbCurrencyTaka /> {data.price.original}
+                      </h4>
+                    </div>
+                    <div className="course-buy-now text-center">
+                      <Button variant="outline-warning" size="sm">
+                        Add to Cart
+                      </Button>
+                    </div>
+                    {/* <div className="teacher-bx">
+                      <div className="teacher-info">
+                        <div className="teacher-thumb">
+                          <img src="assets/images/testimonials/pic1.jpg" alt="" />
+                        </div>
+                        <div className="teacher-name">
+                          <h5>{data.created_by}</h5>
+                          <span>Science Teacher</span>
+                        </div>
                       </div>
-                      <div className="teacher-name">
-                        <h5>Hinata Hyuga</h5>
-                        <span>Science Teacher</span>
+                    </div> */}
+                  </div>
+                </div>
+
+                <div className="col-lg-9 col-md-8 col-sm-12">
+                  <div className="courses-post">
+                    <div className="ttr-post-media media-effect">
+                      <a href="">
+                        <img src={data.picture} alt="" />
+                      </a>
+                    </div>
+                    <div className="ttr-post-info">
+                      <div className="ttr-post-title ">
+                        <h2 className="post-title"> {data.course_name}</h2>
+                      </div>
+                      <div className="ttr-post-text">
+                        <p>{data.description.short_description}</p>
                       </div>
                     </div>
                   </div>
-                  <div className="cours-more-info">
-                    <div className="review">
-                      <span>3 Review</span>
-                      <ul className="cours-star">
-                        <li className="active">
-                          <i className="fa fa-star"></i>
-                        </li>
-                        <li className="active">
-                          <i className="fa fa-star"></i>
-                        </li>
-                        <li className="active">
-                          <i className="fa fa-star"></i>
-                        </li>
-                        <li>
-                          <i className="fa fa-star"></i>
-                        </li>
-                        <li>
-                          <i className="fa fa-star"></i>
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="price categories">
-                      <span>Categories</span>
-                      <h5 className="text-primary">Frontend</h5>
-                    </div>
-                  </div>
-                  <div className="course-info-list scroll-page">
-                    <ul className="navbar">
-                      <li>
-                        <a className="nav-link" href="">
-                          <i className="ti-zip"></i>Overview
-                        </a>
-                      </li>
-                      <li>
-                        <a className="nav-link" href="">
-                          <i className="ti-bookmark-alt"></i>Curriculum
-                        </a>
-                      </li>
-                      <li>
-                        <a className="nav-link" href="">
-                          <i className="ti-user"></i>Instructor :{" "}
-                          {data.created_by}{" "}
-                        </a>
-                      </li>
-                      <li>
-                        <a className="nav-link" href="">
-                          <i className="ti-comments"></i>Reviews
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+                  <div className="courese-overview" id="overview">
+                    <h4>Overview</h4>
+                    <div className="row">
+                      <div className="col-md-12 col-lg-4">
+                        <ul className="course-features">
+                          <li>
+                            <i className="ti-book"></i>{" "}
+                            <span className="label">Instructor</span>{" "}
+                            <span className="value">{data.created_by}</span>
+                          </li>
+                          <li>
+                            <i className="ti-book"></i>{" "}
+                            <span className="label">Lectures</span>{" "}
+                            <span className="value">
+                              {data.course_content.lectures}
+                            </span>
+                          </li>
+                          <li>
+                            <i className="ti-help-alt"></i>{" "}
+                            <span className="label">Quizzes</span>{" "}
+                            <span className="value">1</span>
+                          </li>
+                          <li>
+                            <i className="ti-time"></i>{" "}
+                            <span className="label">Duration</span>{" "}
+                            <span className="value">{data.duration}</span>
+                          </li>
+                          <li>
+                            <i className="ti-stats-up"></i>{" "}
+                            <span className="label">Skill level</span>{" "}
+                            <span className="value">Beginner</span>
+                          </li>
+                          <li>
+                            <i className="ti-smallcap"></i>{" "}
+                            <span className="label">Language</span>{" "}
+                            <span className="value">{data.language}</span>
+                          </li>
+                          <li>
+                            <i className="ti-user"></i>{" "}
+                            <span className="label">Students</span>{" "}
+                            <span className="value">32</span>
+                          </li>
+                          <li>
+                            <i className="ti-check-box"></i>{" "}
+                            <span className="label">Assessments</span>{" "}
+                            <span className="value">Yes</span>
+                          </li>
+                        </ul>
+                      </div>
+                      <div className="col-md-12 col-lg-8">
+                        <h5 className="m-b5">Course Description</h5>
+                        <p>{data.description.description}</p>
 
-              <div className="col-lg-9 col-md-8 col-sm-12">
-                <div className="courses-post">
-                  <div className="ttr-post-media media-effect">
-                    <a href="">
-                      <img src={data.picture} alt="" />
-                    </a>
-                  </div>
-                  <div className="ttr-post-info">
-                    <div className="ttr-post-title ">
-                      <h2 className="post-title"> {data.course_name}</h2>
-                    </div>
-                    <div className="ttr-post-text">
-                      <p>{data.description.short_description}</p>
+                        <h5 className="m-b5">Learning Outcomes</h5>
+                        <ul className="list-checked primary">
+                          {data.topics.map((topic) => (
+                            <li>{topic}</li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="courese-overview" id="overview">
-                  <h4>Overview</h4>
-                  <div className="row">
-                    <div className="col-md-12 col-lg-4">
-                      <ul className="course-features">
-                        <li>
-                          <i className="ti-book"></i>{" "}
-                          <span className="label">Lectures</span>{" "}
-                          <span className="value">
-                            {data.course_content.lectures}
-                          </span>
-                        </li>
-                        <li>
-                          <i className="ti-help-alt"></i>{" "}
-                          <span className="label">Quizzes</span>{" "}
-                          <span className="value">1</span>
-                        </li>
-                        <li>
-                          <i className="ti-time"></i>{" "}
-                          <span className="label">Duration</span>{" "}
-                          <span className="value">{data.duration}</span>
-                        </li>
-                        <li>
-                          <i className="ti-stats-up"></i>{" "}
-                          <span className="label">Skill level</span>{" "}
-                          <span className="value">Beginner</span>
-                        </li>
-                        <li>
-                          <i className="ti-smallcap"></i>{" "}
-                          <span className="label">Language</span>{" "}
-                          <span className="value">{data.language}</span>
-                        </li>
-                        <li>
-                          <i className="ti-user"></i>{" "}
-                          <span className="label">Students</span>{" "}
-                          <span className="value">32</span>
-                        </li>
-                        <li>
-                          <i className="ti-check-box"></i>{" "}
-                          <span className="label">Assessments</span>{" "}
-                          <span className="value">Yes</span>
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="col-md-12 col-lg-8">
-                      <h5 className="m-b5">Course Description</h5>
-                      <p>{data.description.description}</p>
-                     
-                      <h5 className="m-b5">Learning Outcomes</h5>
-                      <ul className="list-checked primary">
-                        {data.topics.map((topic) => (
-                          <li>{topic}</li>
-                        ))}
-
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                {/* <div className="m-b30" id="curriculum">
+                  {/* <div className="m-b30" id="curriculum">
                   <h4>Curriculum</h4>
                   <ul className="curriculum-list">
                     <li>
@@ -261,7 +215,7 @@ const Content = () => {
                     </li>
                   </ul>
                 </div> */}
-                {/* <div className="" id="instructor">
+                  {/* <div className="" id="instructor">
                   <h4>Instructor</h4>
                   <div className="instructor-bx">
                     <div className="instructor-author">
@@ -342,7 +296,7 @@ const Content = () => {
                     </div>
                   </div>
                 </div> */}
-                {/* <div className="" id="reviews">
+                  {/* <div className="" id="reviews">
                   <h4>Reviews</h4>
 
                   <div className="review-bx">
@@ -451,14 +405,18 @@ const Content = () => {
                     </div>
                   </div>
                 </div> */}
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>}
-      {
-        isLoading && <div className="text-center my-5" > <Spinner animation="border" /></div> 
-      }
+      )}
+      {isLoading && (
+        <div className="text-center my-5">
+          {" "}
+          <Spinner animation="border" />
+        </div>
+      )}
     </div>
   );
 };

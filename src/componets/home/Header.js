@@ -18,7 +18,8 @@ const Header = () => {
             {/* <!-- Header Logo ==== --> */}
             <div className="menu-logo">
               <NavLink to={"/"}>
-                <img src="assets/images/logo-white.png" alt="" />
+                {/* <img src="assets/images/logo-white.png" alt="" /> */}
+                E-Learning
               </NavLink>
             </div>
             {user?.displayName && (

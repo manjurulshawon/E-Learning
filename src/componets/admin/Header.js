@@ -3,6 +3,7 @@ import { VscListSelection } from "react-icons/vsc";
 import { RxCross2 } from "react-icons/rx";
 import { Link } from "react-router-dom";
 import useFirebase from "../../hooks/useFirebase";
+import { Button } from "react-bootstrap";
 
 const Header = ({ isActive, setIsActive }) => {
   const { logout, user } = useFirebase();
@@ -72,12 +73,13 @@ const Header = ({ isActive, setIsActive }) => {
               </li>
             )}
             <li>
-              <Link
+              <Button
+                variant="danger"
                 onClick={logout}
-                class="ttr-material-button ttr-search-toggle"
+                className="ttr-material-button ttr-search-toggle mt-2 pt-2"
               >
                 Logout
-              </Link>
+              </Button>
             </li>
             {/* <li>
               <a href="#" class="ttr-material-button ttr-submenu-toggle">

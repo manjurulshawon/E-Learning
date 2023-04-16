@@ -1,16 +1,24 @@
 import React from "react";
-import { TbCurrencyTaka } from 'react-icons/tb';
+import { Button } from "react-bootstrap";
+import { TbCurrencyTaka } from "react-icons/tb";
 import { NavLink } from "react-router-dom";
 
-
-const Course = ({course}) => {
+const Course = ({ course }) => {
   // console.log(course)
-    const {picture,price, disPrice,reviews,course_name,description,_id} = course
+  const { picture, price, disPrice, reviews, course_name, description, _id } =
+    course;
   return (
-    <div className="item me-2 my-3 col-10" >
-      <div className="cours-bx" style={{boxShadow:'0 0 3px 0 rgba(29,25,0,0.1)'}}>
+    <div className="item me-2 my-3 col-10">
+      <div
+        className="cours-bx"
+        style={{ boxShadow: "0 0 3px 0 rgba(29,25,0,0.1)" }}
+      >
         <div className="action-box">
-          <img style={{height:"280px",objectFit: "cover"}} src={picture} alt="" />
+          <img
+            style={{ height: "280px", objectFit: "cover" }}
+            src={picture}
+            alt=""
+          />
           {/* <a href="#" className="btn text-white">
             Read More
           </a> */}
@@ -23,8 +31,11 @@ const Course = ({course}) => {
         </div>
         <div className="cours-more-info">
           <div className="review">
-            <span>{reviews} Review</span>
-            <ul className="cours-star">
+            <Button variant="outline-warning" size="sm">
+              Add to Cart
+            </Button>
+            {/* <span>{reviews} Review</span> */}
+            {/* <ul className="cours-star">
               <li className="active">
                 <i className="fa fa-star"></i>
               </li>
@@ -40,11 +51,14 @@ const Course = ({course}) => {
               <li>
                 <i className="fa fa-star"></i>
               </li>
-            </ul>
+            </ul> */}
           </div>
           <div className="price">
             {/* <del><TbCurrencyTaka /> {price.original}</del> */}
-            <h5 className="mt-3"><TbCurrencyTaka />{price.discount}</h5>
+            <h5 className="mt-3">
+              <TbCurrencyTaka />
+              {price.discount}
+            </h5>
           </div>
         </div>
       </div>

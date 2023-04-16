@@ -3,6 +3,7 @@ import DashboardLayout from "./DashboardLayout";
 import CourseModal from "./Modal";
 import { Button, Table } from "react-bootstrap";
 import { FaEdit, FaTrash } from "react-icons/fa";
+import { toast } from "react-toastify";
 const Course = () => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -19,7 +20,25 @@ const Course = () => {
         setData(data);
         setIsLoading(false);
       });
-  }, []);
+  }, [data]);
+  const handleDelete = (id) => {
+    const proceed = window.confirm("are you sure, you want to delete?");
+    if (proceed) {
+      const url = `${process.env.REACT_APP_API_BASE_URL}/courses/${id}`;
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount > 0) {
+            // alert("deleted successfully");
+            toast.success("deleted successfully");
+            const remaining = data.filter((course) => course._id !== id);
+            setData(remaining);
+          }
+        });
+    }
+  };
   return (
     <DashboardLayout>
       <main className="ttr-wrapper">
@@ -53,7 +72,6 @@ const Course = () => {
                       <td>{dt.duration}</td>
                       <td>{dt.price.original}</td>
                       <td className="d-flex">
-                        {/* <div className="mx-2">Edit</div> */}
                         <Button
                           variant="outline-info"
                           size="sm"
@@ -61,8 +79,12 @@ const Course = () => {
                         >
                           <FaEdit />
                         </Button>
-                        {/* <div className="text-danger"> */}
-                        <Button variant="outline-danger" size="sm">
+
+                        <Button
+                          variant="outline-danger"
+                          size="sm"
+                          onClick={() => handleDelete(dt._id)}
+                        >
                           <FaTrash />
                         </Button>
                         {/* </div> */}

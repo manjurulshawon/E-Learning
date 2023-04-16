@@ -5,41 +5,42 @@ import AllCoursesBanner from "./AllCoursesBanner";
 import Content from "../../componets/AllCourses/Course";
 import Header from "../../componets/home/Header";
 import Course from "../../componets/AllCourses/Course";
+import Footer from "../../componets/home/Footer";
 const AllCourses = () => {
-  const [course, setCourse] = useState([])
-  const [filterCourse, setFilterCourse] = useState([])
+  const [course, setCourse] = useState([]);
+  const [filterCourse, setFilterCourse] = useState([]);
   console.log("allCourses", filterCourse);
   useEffect(() => {
-
     fetch(`${process.env.REACT_APP_API_BASE_URL}/courses`)
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         console.log("courses", data);
-        setCourse(data)
-        setFilterCourse(data)
-      })
-
-  }, [])
- const searchHandler=(e)=>{
-  console.log(e.target.value);
-  let data = course.filter(dt => dt.course_name.toLowerCase().indexOf(e.target.value.toLowerCase()) !==-1)
-  setFilterCourse(data)
- }
+        setCourse(data);
+        setFilterCourse(data);
+      });
+  }, []);
+  const searchHandler = (e) => {
+    console.log(e.target.value);
+    let data = course.filter(
+      (dt) =>
+        dt.course_name.toLowerCase().indexOf(e.target.value.toLowerCase()) !==
+        -1
+    );
+    setFilterCourse(data);
+  };
   const searchClickHandler = (e) => {
     console.log("e", e);
-    if (e == 'all') {
-      setFilterCourse(course)
-      
+    if (e == "all") {
+      setFilterCourse(course);
     } else {
-      
-      let data = course.filter(dt => dt.course_type == e)
-      setFilterCourse(data)
+      let data = course.filter((dt) => dt.course_type == e);
+      setFilterCourse(data);
     }
-  }
+  };
   return (
     <div>
       <div class="page-content bg-white">
-      <Header />
+        <Header />
         <AllCoursesBanner />
 
         <div class="content-block">
@@ -54,7 +55,6 @@ const AllCourses = () => {
                         <input
                           placeholder="Search Course"
                           type="text"
-                          
                           class="form-control"
                           onChange={searchHandler}
                         />
@@ -64,23 +64,43 @@ const AllCourses = () => {
                   <div class="widget widget_archive">
                     <h5 class="widget-title style-1">All Courses</h5>
                     <ul>
-                      <li className="curserPointer" onClick={() => searchClickHandler("all")}>
-                        All 
+                      <li
+                        className="curserPointer"
+                        onClick={() => searchClickHandler("all")}
+                      >
+                        All
                       </li>
-                      <li className="curserPointer" onClick={() => searchClickHandler("general")}>
+                      <li
+                        className="curserPointer"
+                        onClick={() => searchClickHandler("general")}
+                      >
                         General
                       </li>
-                      <li className="curserPointer" onClick={() => searchClickHandler("itAndSoft")}>
+                      <li
+                        className="curserPointer"
+                        onClick={() => searchClickHandler("itAndSoft")}
+                      >
                         IT & Software
                       </li>
-                      <li className="curserPointer" onClick={() => searchClickHandler("photography")}>
-                      Photography
+                      <li
+                        className="curserPointer"
+                        onClick={() => searchClickHandler("photography")}
+                      >
+                        Photography
                       </li>
-                      <li className="curserPointer" onClick={() => searchClickHandler("programmingLanguage")}>
+                      <li
+                        className="curserPointer"
+                        onClick={() =>
+                          searchClickHandler("programmingLanguage")
+                        }
+                      >
                         Programming Language
                       </li>
-                      <li className="curserPointer" onClick={() => searchClickHandler("technology")}>
-                       Technology
+                      <li
+                        className="curserPointer"
+                        onClick={() => searchClickHandler("technology")}
+                      >
+                        Technology
                       </li>
                     </ul>
                   </div>
@@ -155,58 +175,12 @@ const AllCourses = () => {
                     ))}
                   </div>
                 </div>
-                {/* 
-                <div class="col-lg-9 col-md-8 col-sm-12">
-                  <div class="row">
-                    <div class="col-md-6 col-lg-4 col-sm-6 m-b30">
-                      <div class="cours-bx">
-                        <div class="action-box">
-                          <img src="assets/images/courses/pic2.jpg" alt="" />
-                        </div>
-                        <div class="info-bx text-center">
-                          <h5>
-                            <a href="#">Introduction EduChamp – LMS plugin</a>
-                          </h5>
-                          <span>Programming</span>
-                        </div>
-                        <div class="cours-more-info">
-                          <div class="review">
-                            <span>3 Review</span>
-                            <ul class="cours-star">
-                              <li class="active">
-                                <i class="fa fa-star"></i>
-                              </li>
-                              <li class="active">
-                                <i class="fa fa-star"></i>
-                              </li>
-                              <li class="active">
-                                <i class="fa fa-star"></i>
-                              </li>
-                              <li>
-                                <i class="fa fa-star"></i>
-                              </li>
-                              <li>
-                                <i class="fa fa-star"></i>
-                              </li>
-                            </ul>
-                          </div>
-                          <div class="price">
-                            <del>$190</del>
-                            <h5>$120</h5>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div> */}
-                {/* <div className="col-lg-3"> */}
-
-                {/* </div> */}
               </div>
             </div>
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

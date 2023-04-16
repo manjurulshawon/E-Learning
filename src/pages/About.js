@@ -1,16 +1,16 @@
-import React from 'react'
-import Content from '../componets/about/Content'
-import Header from '../componets/home/Header'
+import React from "react";
+import Content from "../componets/about/Content";
+import Header from "../componets/home/Header";
+import Footer from "../componets/home/Footer";
 
- const About = () => {
+const About = () => {
   return (
-    
     <>
-    <Header />
-    <Content />
+      <Header />
+      <Content />
+      <Footer />
     </>
+  );
+};
 
-  )
-}
-
-export default About
+export default About;

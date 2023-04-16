@@ -105,18 +105,18 @@ function App() {
         <Route
           path="/dashboard/course"
           element={
-            // <DashboardLayout>
-            <Course />
-
-            // </DashboardLayout>
+            <PrivateRoute>
+              <Course />
+            </PrivateRoute>
           }
         />
         <Route
           path="/dashboard/MyProfile"
           element={
             // <DashboardLayout>
-
-            <Userprofile />
+            <PrivateRoute>
+              <Userprofile />
+            </PrivateRoute>
             // </DashboardLayout>
           }
         />
@@ -124,8 +124,9 @@ function App() {
           path="/dashboard/quiz"
           element={
             // <DashboardLayout>
-
-            <Quiz />
+            <PrivateRoute>
+              <Quiz />
+            </PrivateRoute>
             // </DashboardLayout>
           }
         />
