@@ -11,14 +11,14 @@ import {
 } from "firebase/auth";
 import { initializedApp } from "../firebase/initializeApp";
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const useFirebase = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [admin, setAdmin] = useState(false);
   const [user, setUser] = useState({});
-
+  const [searchParams, setSearchParams] = useSearchParams();
   const navigation = useNavigate();
   const history = useLocation();
 
@@ -114,6 +114,11 @@ const useFirebase = () => {
       setIsLoading(true);
       toast.warning("Succesfully Logout");
       setUser({});
+      // navigation(null, { state: null });
+      searchParams.delete("state");
+
+      // Update the URL with modified query parameters
+      setSearchParams(searchParams);
     });
   };
   return {
@@ -122,6 +127,7 @@ const useFirebase = () => {
     user,
     logout,
     isLoading,
+    setIsLoading,
     registerWithEmailAndPassword,
     logInWithEmailAndPassword,
   };

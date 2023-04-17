@@ -1,4 +1,5 @@
 import React from "react";
+import CountUp from "react-countup";
 
 const Content = () => {
   return (
@@ -117,17 +118,17 @@ const Content = () => {
                   Read More
                 </a>
               </div>
-              <div className="col-lg-7 col-md-12 heading-bx p-lr">
+              {/* <div className="col-lg-7 col-md-12 heading-bx p-lr">
                 <div className="video-bx">
-                  <img src="assets/images/about/pic1.jpg" alt="" />
+                   <img src="assets/images/about/pic1.jpg" alt="" /> 
                   <a
-                    href="https://www.youtube.com/watch?v=x_sJzVe9P_8"
+                    href="https://www.youtube.com/watch?v=xFOG_9Y883c"
                     className="popup-youtube video"
                   >
                     <i className="fa fa-play"></i>
                   </a>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -139,44 +140,46 @@ const Content = () => {
                 <div className="col-lg-3 col-md-6 col-sm-6 col-6 m-b30">
                   <div className="counter-style-1">
                     <div className="text-primary">
-                      <span className="counter">3000</span>
+                      <span className="counter">
+                        <CountUp end={2000} duration={5} />
+                      </span>
                       <span>+</span>
                     </div>
-                    <span className="counter-text">Completed Projects</span>
+                    <span className="counter-text">Completed Courses</span>
                   </div>
                 </div>
                 <div className="col-lg-3 col-md-6 col-sm-6 col-6 m-b30">
                   <div className="counter-style-1">
                     <div className="text-black">
-                      <span className="counter">2500</span>
+                      <CountUp end={2500} duration={5} />
                       <span>+</span>
                     </div>
-                    <span className="counter-text">Happy Clients</span>
+                    <span className="counter-text">Happy Student</span>
                   </div>
                 </div>
                 <div className="col-lg-3 col-md-6 col-sm-6 col-6 m-b30">
                   <div className="counter-style-1">
                     <div className="text-primary">
-                      <span className="counter">1500</span>
+                      <CountUp end={3000} duration={5} />
                       <span>+</span>
                     </div>
-                    <span className="counter-text">Questions Answered</span>
+                    <span className="counter-text">Published Courses</span>
                   </div>
                 </div>
                 <div className="col-lg-3 col-md-6 col-sm-6 col-6 m-b30">
                   <div className="counter-style-1">
                     <div className="text-black">
-                      <span className="counter">1000</span>
+                      <CountUp end={1000} duration={5} />
                       <span>+</span>
                     </div>
-                    <span className="counter-text">Ordered Coffee's</span>
+                    <span className="counter-text">Enrollment Student</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-{/* 
+        {/* 
         <div
           className="section-area section-sp2 bg-fix ovbl-dark join-bx text-center"
           style={{ backgroundmage: "url(assets/images/background/bg1.jpg)" }}

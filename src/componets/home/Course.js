@@ -1,12 +1,16 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { TbCurrencyTaka } from "react-icons/tb";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Course = ({ course }) => {
   // console.log(course)
   const { picture, price, disPrice, reviews, course_name, description, _id } =
     course;
+  const navigate = useNavigate();
+  const handleNavigate = (_id) => {
+    navigate(`/enroll/${_id}`);
+  };
   return (
     <div className="item me-2 my-3 col-10">
       <div
@@ -31,8 +35,12 @@ const Course = ({ course }) => {
         </div>
         <div className="cours-more-info">
           <div className="review">
-            <Button variant="outline-warning" size="sm">
-              Add to Cart
+            <Button
+              variant="outline-warning"
+              size="md"
+              onClick={() => handleNavigate(_id)}
+            >
+              Enroll
             </Button>
             {/* <span>{reviews} Review</span> */}
             {/* <ul className="cours-star">

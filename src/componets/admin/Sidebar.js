@@ -6,7 +6,7 @@ import useAuth from "../../hooks/useAuth";
 const Sidebar = (props) => {
   const { setIsActive, isActive } = props;
   const { user, admin } = useAuth();
-  console.log("admin", admin);
+  // console.log("admin", admin)
   return (
     <div class="ttr-sidebar">
       <div class="ttr-sidebar-wrapper content-scroll">

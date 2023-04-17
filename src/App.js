@@ -43,6 +43,7 @@ import Users from "./componets/admin/Users";
 import MyCourse from "./componets/user/MyCourse";
 import AdminRoute from "./componets/adminRoute/AdminRoute";
 import Quiz from "./componets/admin/Quiz";
+import Enroll from "./pages/Enroll";
 
 function App() {
   let location = useLocation();
@@ -70,6 +71,7 @@ function App() {
         <Route path="/courses" element={<AllCourses />} />
         <Route path="/courses/:courseId" element={<CourseDetail />} />
         <Route path="/events/:eventId" element={<Eventdetails />} />
+        <Route path="/enroll/:enrollId" element={<Enroll />} />
         <Route
           path="/dashboard"
           element={

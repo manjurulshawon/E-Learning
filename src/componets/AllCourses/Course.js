@@ -9,6 +9,10 @@ const Course = (props) => {
   const courseDetails = (_id) => {
     navigate(`/courses/${_id}`);
   };
+
+  const handleNavigate = (_id) => {
+    navigate(`/enroll/${_id}`);
+  };
   return (
     <>
       {/* Content */}
@@ -30,8 +34,12 @@ const Course = (props) => {
           </div>
           <div class="cours-more-info">
             <div class="review">
-              <Button variant="outline-warning" size="sm">
-                Add to Cart
+              <Button
+                variant="outline-warning"
+                size="md"
+                onClick={() => handleNavigate(_id)}
+              >
+                Enroll
               </Button>
             </div>
             <div class="price mt-2">

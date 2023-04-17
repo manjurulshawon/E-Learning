@@ -1,47 +1,78 @@
-import React from 'react'
-import DashboardLayout from '../admin/DashboardLayout'
-import { Table } from 'react-bootstrap'
+import React, { useEffect, useState } from "react";
+import DashboardLayout from "../admin/DashboardLayout";
+import { Table } from "react-bootstrap";
+import useAuth from "../../hooks/useAuth";
 
 const MyCourse = () => {
+  const { user, isLoading, setIsLoading } = useAuth();
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch(`${process.env.REACT_APP_API_BASE_URL}/enrolls`)
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log("courses", data);
+        const userEmail = user.email;
+        const updateData = data.filter((mo) => mo.email === userEmail);
+        setData(updateData);
+        setIsLoading(false);
+      });
+  }, [data]);
   return (
     <div>
-          <DashboardLayout>
+      <DashboardLayout>
         <main className="ttr-wrapper">
-        <div className="container-fluid">
-        <Table striped>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Username</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td colSpan={2}>Larry the Bird</td>
-          <td>@twitter</td>
-        </tr>
-      </tbody>
-    </Table>
-        </div>
-      </main>
-        </DashboardLayout>
-    </div>
-  )
-}
+          <div className="container-fluid">
+            <Table striped>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Course Name</th>
+                  <th>Instructor</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {!isLoading &&
+                  data?.map((dt, key) => (
+                    <tr>
+                      <td>{key + 1}</td>
 
-export default MyCourse
+                      <td>{dt.course.course_name}</td>
+                      <td>{dt.course.created_by}</td>
+
+                      <td>{dt.status}</td>
+                      {/* <td className="d-flex">
+                        <Button
+                          variant="outline-success"
+                          size="sm"
+                          className="mx-2"
+                          onClick={(e) => handleConfirmation(dt._id, e)}
+                          disabled={dt.status == "confirm" ? true : false}
+                        >
+                          <AiOutlineCheck />
+                        </Button>
+
+                        <Button
+                          variant="outline-danger"
+                          size="sm"
+                          disabled={dt.status == "cancel" ? true : false}
+                          onClick={(e) => handleCancel(dt._id, e)}
+                        >
+                          <FaTrash />
+                        </Button>
+                     
+                      </td> */}
+                    </tr>
+                  ))}
+              </tbody>
+            </Table>
+          </div>
+        </main>
+      </DashboardLayout>
+    </div>
+  );
+};
+
+export default MyCourse;
