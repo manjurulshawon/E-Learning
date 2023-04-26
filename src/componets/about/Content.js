@@ -39,8 +39,8 @@ const Content = () => {
                   <div className="icon-content">
                     <h5 className="ttr-tilte">Our Philosophy</h5>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                      sed diam nonummy nibh euismod..
+                      Our enterprise-ready features are designed to help you
+                      scale learning for your entire organization..
                     </p>
                   </div>
                 </div>
@@ -55,8 +55,8 @@ const Content = () => {
                   <div className="icon-content">
                     <h5 className="ttr-tilte">Kingster's Principle</h5>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                      sed diam nonummy nibh euismod..
+                      We offer an extensive collection of courses on relevant
+                      topics that keep your employees ahead of the curve..
                     </p>
                   </div>
                 </div>
@@ -71,8 +71,8 @@ const Content = () => {
                   <div className="icon-content">
                     <h5 className="ttr-tilte">Key Of Success</h5>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                      sed diam nonummy nibh euismod..
+                      Our enterprise-ready features are designed to help you
+                      scale learning for your entire organization..
                     </p>
                   </div>
                 </div>
@@ -87,8 +87,8 @@ const Content = () => {
                   <div className="icon-content">
                     <h5 className="ttr-tilte">Our Philosophy</h5>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                      sed diam nonummy nibh euismod..
+                      We offer an extensive collection of courses on relevant
+                      topics that keep your employees ahead of the curve..
                     </p>
                   </div>
                 </div>
@@ -106,17 +106,19 @@ const Content = () => {
                   It is a long established fact that a reade.
                 </h5>
                 <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting, remaining
-                  essentially unchanged.
+                  E-learning can be considered a process of combining content
+                  with support and community. Networked technologies are used to
+                  create, foster, deliver, and facilitate learning anytime and
+                  anywhere. In addition to providing a delivery mechanism for
+                  content, Internet tools are also used to mentor and monitor
+                  learners, facilitate interaction among dispersed learners,
+                  introduce subject matter experts, evaluate the learning
+                  experience, and foster virtual communities among
+                  practitioners..
                 </p>
-                <a href="#" className="btn">
+                {/* <a href="#" className="btn">
                   Read More
-                </a>
+                </a> */}
               </div>
               {/* <div className="col-lg-7 col-md-12 heading-bx p-lr">
                 <div className="video-bx">

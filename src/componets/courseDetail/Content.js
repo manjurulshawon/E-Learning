@@ -45,12 +45,12 @@ const Content = () => {
                     <div className="course-price">
                       <h4 className="price">
                         {" "}
-                        <TbCurrencyTaka /> {data.price.original}
+                        <TbCurrencyTaka /> {data.price}
                       </h4>
                     </div>
                     <div className="course-buy-now text-center">
                       <Button variant="outline-warning" size="sm">
-                        Add to Cart
+                        Enroll
                       </Button>
                     </div>
                     {/* <div className="teacher-bx">
@@ -79,11 +79,11 @@ const Content = () => {
                         <h2 className="post-title"> {data.course_name}</h2>
                       </div>
                       <div className="ttr-post-text">
-                        <p>{data.description.short_description}</p>
+                        {/* <p>{data.description.short_description}</p> */}
                       </div>
                     </div>
                   </div>
-                  <div className="courese-overview" id="overview">
+                  <div className="courese-overview mt-5" id="overview">
                     <h4>Overview</h4>
                     <div className="row">
                       <div className="col-md-12 col-lg-4">
@@ -97,7 +97,7 @@ const Content = () => {
                             <i className="ti-book"></i>{" "}
                             <span className="label">Lectures</span>{" "}
                             <span className="value">
-                              {data.course_content.lectures}
+                              {data.lectures}
                             </span>
                           </li>
                           <li>
@@ -134,7 +134,7 @@ const Content = () => {
                       </div>
                       <div className="col-md-12 col-lg-8">
                         <h5 className="m-b5">Course Description</h5>
-                        <p>{data.description.description}</p>
+                        <p>{data.description}</p>
 
                         <h5 className="m-b5">Learning Outcomes</h5>
                         <ul className="list-checked primary">

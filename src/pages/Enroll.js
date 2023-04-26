@@ -56,8 +56,8 @@ const Enroll = () => {
                       <td>1</td>
                       <td>{course.course_name}</td>
                       <td>{course.created_by}</td>
-                      <td>{course.course_content.lectures}</td>
-                      <td>{course.price.original}</td>
+                      <td>{course.lectures}</td>
+                      <td>{course.price}</td>
                     </tr>
                   ) : (
                     <div className="text-center">

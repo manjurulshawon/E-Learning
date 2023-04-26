@@ -30,7 +30,7 @@ const Course = (props) => {
             <h5>
               <Link to={`/courses/${_id}`}>{course_name}</Link>
             </h5>
-            <span>{description.short_description}</span>
+            <span>{description}</span>
           </div>
           <div class="cours-more-info">
             <div class="review">
@@ -44,7 +44,7 @@ const Course = (props) => {
             </div>
             <div class="price mt-2">
               {/* <del>$190</del> */}
-              <h5>৳ {price.original}</h5>
+              <h5>৳ {price}</h5>
             </div>
           </div>
           {/* </div>

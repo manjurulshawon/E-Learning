@@ -31,7 +31,7 @@ const Course = ({ course }) => {
           <h5>
             <NavLink to={`/courses/${_id}`}>{course_name}</NavLink>
           </h5>
-          <span>{description.short_description}</span>
+          <span>{description}</span>
         </div>
         <div className="cours-more-info">
           <div className="review">
@@ -65,7 +65,7 @@ const Course = ({ course }) => {
             {/* <del><TbCurrencyTaka /> {price.original}</del> */}
             <h5 className="mt-3">
               <TbCurrencyTaka />
-              {price.discount}
+              {price}
             </h5>
           </div>
         </div>

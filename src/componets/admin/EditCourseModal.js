@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
+import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
 // import Modal from "react-modal";
@@ -17,10 +18,34 @@ const customStyles = {
 
 // Modal.setAppElement("#root");
 
-const CourseModal = (props) => {
-  const { handleClose, method, modalIsOpen } = props;
+const EditCourseModal = (props) => {
+  const { handleClose, method, modalIsOpen,courseId } = props;
   const [data, setData] = useState({});
   const [arrayInput, setArrayInput] = useState("");
+
+
+//   const { courseId } = useParams();
+  const [isLoading, setIsLoading] = useState(true);
+  console.log("idc", courseId);
+  console.log("courses", data.length);
+  // let data = allCourses.filter(course=> course._id == courseId)
+  // let data = allCourses.find((course) => course._id == courseId);
+  useEffect(() => {
+    fetch(`${process.env.REACT_APP_API_BASE_URL}/courses/${courseId}`)
+      .then((res) => res.json())
+      .then((data) => {
+          
+          setData(data);
+          setIsLoading(false);
+          console.log("courses", data);
+      });
+  }, []);
+
+
+
+
+
+
   const handleSkill = (e) => {
     setData({
       ...data,
@@ -112,8 +137,8 @@ const CourseModal = (props) => {
   const handleSubmit = (e) => {
     // e.preventDefault();
     console.log("submit data", data);
-    fetch(`${process.env.REACT_APP_API_BASE_URL}/courses`, {
-      method: "POST",
+    fetch(`${process.env.REACT_APP_API_BASE_URL}/courses/${courseId}`, {
+      method: "PUT",
       headers: { "content-Type": "application/json" },
       body: JSON.stringify(data),
     })
@@ -134,9 +159,6 @@ const CourseModal = (props) => {
 
   return (
     <div>
-      {/* <button onClick={openModal} className="btn btn-primary">
-        Add
-      </button> */}
       <Modal
         show={modalIsOpen}
         onHide={handleClose}
@@ -146,11 +168,11 @@ const CourseModal = (props) => {
       >
         <Modal.Header closeButton>
           <div>
-            <h4>Add Course</h4>
+            <h4>Edit Course</h4>
           </div>
         </Modal.Header>
         <Modal.Body>
-          <Form onSubmit={handleSubmit}>
+    {  !isLoading &&    <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3">
               <Form.Label>Course Name</Form.Label>
               <Form.Control
@@ -300,88 +322,12 @@ const CourseModal = (props) => {
             <Button type="submit" variant="primary">
               Save
             </Button>
-          </Form>
+          </Form>}
         </Modal.Body>
       </Modal>
-      {/* <Modal
-        isOpen={modalIsOpen}
-        onAfterOpen={afterOpenModal}
-        onRequestClose={closeModal}
-        style={customStyles}
-        // overlayRef={(node) => (this.overlayRef = node)}
-        // contentRef={(node) => (this.contentRef = node)}
-        // className="ReactModal__Body--open"
-      >
-        <div className="d-flex justify-content-between mb-3">
-          <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Add Course</h2>
-          <button onClick={closeModal} className="btn btn-danger ml-3">
-            close
-          </button>
-        </div>
-        <Form>
-          <Form.Group className="mb-3">
-            <Form.Control type="text" placeholder="Course Name" />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Control type="text" placeholder="Course Type" />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Control type="text" placeholder="Instructor" />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Control type="text" placeholder="Lecture" />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Control type="text" placeholder="Duration" />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Control type="text" placeholder="Quiz" />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Control type="text" placeholder="Quiz" />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Control type="text" placeholder="Quiz" />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Control type="text" placeholder="Quiz" />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Control type="text" placeholder="Quiz" />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Control type="text" placeholder="Quiz" />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Control type="text" placeholder="Quiz" />
-          </Form.Group>
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
-        </Form>
-      </Modal> */}
-      {/* <Modal
-        show={modalIsOpen}
-        onHide={closeModal}
-        backdrop="static"
-        keyboard={false}
-      >
-        <Modal.Header closeButton>
-          <Modal.Title>Modal title</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          I will not close if you click outside me. Don not even try to press
-          escape key.
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={closeModal}>
-            Close
-          </Button>
-          <Button variant="primary">Understood</Button>
-        </Modal.Footer>
-      </Modal> */}
+     
     </div>
   );
 };
 
-export default CourseModal;
+export default EditCourseModal;

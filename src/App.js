@@ -71,7 +71,7 @@ function App() {
         <Route path="/courses" element={<AllCourses />} />
         <Route path="/courses/:courseId" element={<CourseDetail />} />
         <Route path="/events/:eventId" element={<Eventdetails />} />
-        <Route path="/enroll/:enrollId" element={<Enroll />} />
+        <Route path="/enroll/:enrollId" element={<PrivateRoute><Enroll /></PrivateRoute>} />
         <Route
           path="/dashboard"
           element={

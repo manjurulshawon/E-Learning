@@ -4,18 +4,34 @@ import CourseModal from "./Modal";
 import { Button, Table } from "react-bootstrap";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import { toast } from "react-toastify";
+import EditCourseModal from "./EditCourseModal";
 const Course = () => {
   const [data, setData] = useState({});
+  const [courseId, setCourseId] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const [editmodalIsOpen, setEditmodalIsOpen] = useState(false);
 
-  console.log("courses", data.length);
+  const handleEditModal = (id) => {
+    setCourseId(id)
+    setEditmodalIsOpen(!editmodalIsOpen);
+  };
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function handleClose() {
+    setIsOpen(false);
+  }
+
+  // console.log("courses", data.length);
   // let data = allCourses.filter(course=> course._id == courseId)
   // let data = allCourses.find((course) => course._id == courseId);
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_BASE_URL}/courses`)
       .then((res) => res.json())
       .then((data) => {
-        console.log("courses", data);
+        // console.log("courses", data);
 
         setData(data);
         setIsLoading(false);
@@ -46,7 +62,16 @@ const Course = () => {
           <div className="db-breadcrumb">
             <h4 className="breadcrumb-title">Courses</h4>
             <ul className="db-breadcrumb-list">
-              <CourseModal />
+              <button className="btn btn-primary" onClick={openModal}>
+                Add
+              </button>
+              {modalIsOpen && (
+                <CourseModal
+                  method="create"
+                  modalIsOpen={modalIsOpen}
+                  handleClose={handleClose}
+                />
+              )}
               {/* <li>Courses</li> */}
             </ul>
           </div>
@@ -70,14 +95,14 @@ const Course = () => {
                       <td>{dt.course_name}</td>
                       <td>{dt.course_type}</td>
                       <td>{dt.duration}</td>
-                      <td>{dt.price.original}</td>
+                      <td>{dt.price}</td>
                       <td className="d-flex">
                         <Button
                           variant="outline-info"
                           size="sm"
                           className="mx-2"
                         >
-                          <FaEdit />
+                          <FaEdit onClick={() => handleEditModal(dt._id)} />
                         </Button>
 
                         <Button
@@ -96,6 +121,14 @@ const Course = () => {
           </div>
         </div>
       </main>
+      {editmodalIsOpen && (
+        <EditCourseModal
+          method="edit"
+          courseId={courseId}
+          modalIsOpen={editmodalIsOpen}
+          handleClose={handleEditModal}
+        />
+      )}
     </DashboardLayout>
   );
 };
