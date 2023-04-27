@@ -125,6 +125,7 @@ const CourseModal = (props) => {
           // setData(data);
         }
       });
+      handleClose()
     e.preventDefault();
   };
 
@@ -261,7 +262,7 @@ const CourseModal = (props) => {
                 value={data.student}
               />
             </Form.Group>
-            <Form.Group className="mb-3">
+            {/* <Form.Group className="mb-3">
               <Form.Label>Expire date</Form.Label>
               <Form.Control
                 type="text"
@@ -269,7 +270,7 @@ const CourseModal = (props) => {
                 // onChange={handleTrxId}
                 // value={data.trxId}
               />
-            </Form.Group>
+            </Form.Group> */}
             <Form.Group className="mb-3">
               <Form.Label>Skill</Form.Label>
               <Form.Select

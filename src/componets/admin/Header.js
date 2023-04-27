@@ -8,7 +8,7 @@ import { Button } from "react-bootstrap";
 const Header = ({ isActive, setIsActive }) => {
   const { logout, user } = useFirebase();
   return (
-    <header class="ttr-header">
+    <header class="ttr-header" style={{backgroundColor: "gray"}}>
       <div class="ttr-header-wrapper">
         <div
           class="ttr-toggle-sidebar ttr-material-button  d-flex align-items-center justify-content-center"
@@ -20,7 +20,7 @@ const Header = ({ isActive, setIsActive }) => {
         <div class="ttr-logo-box">
           <div>
             <Link to="/" class="ttr-logo">
-              <img
+              {/* <img
                 class="ttr-logo-mobile"
                 alt=""
                 src="assets/images/logo-mobile.png"
@@ -33,7 +33,11 @@ const Header = ({ isActive, setIsActive }) => {
                 src="assets/images/logo-white.png"
                 width="160"
                 height="27"
-              />
+              /> */}
+                 
+                  <p className="text-white mt-1 pt-1" style={{fontSize: 22}}>
+              E-Learning
+                </p>
             </Link>
           </div>
         </div>

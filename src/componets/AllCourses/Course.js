@@ -19,9 +19,9 @@ const Course = (props) => {
       {/* <div class="col-lg-9 col-md-8 col-sm-12">
         <div class="row"> */}
       <div class="col-md-6 col-lg-4 col-sm-6 m-b30">
-        <div class="cours-bx">
+        <div class="cours-bx" >
           <div class="action-box">
-            <img src={picture} alt="" />
+            <img src={picture} alt="" style={{height: 260}}/>
             {/* <a href="#" class="btn">
               Read More
             </a> */}
@@ -30,7 +30,7 @@ const Course = (props) => {
             <h5>
               <Link to={`/courses/${_id}`}>{course_name}</Link>
             </h5>
-            <span>{description}</span>
+            <span>{description?.substring(0, 100)} ...</span>
           </div>
           <div class="cours-more-info">
             <div class="review">

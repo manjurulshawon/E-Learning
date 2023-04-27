@@ -21,7 +21,7 @@ const customStyles = {
 const EditCourseModal = (props) => {
   const { handleClose, method, modalIsOpen,courseId } = props;
   const [data, setData] = useState({});
-  const [arrayInput, setArrayInput] = useState("");
+  const [arrayInput, setArrayInput] = useState('');
 
 
 //   const { courseId } = useParams();
@@ -42,6 +42,10 @@ const EditCourseModal = (props) => {
   }, []);
 
 
+useEffect(() => {
+ setArrayInput(data?.topics?.join(","))
+ console.log("topics",arrayInput);
+}, [])
 
 
 
@@ -67,7 +71,7 @@ const EditCourseModal = (props) => {
   const handleCourseType = (e) => {
     setData({
       ...data,
-      courseType: e.target.value,
+      course_type: e.target.value,
     });
   };
   const handleDescription = (e) => {
@@ -125,8 +129,8 @@ const EditCourseModal = (props) => {
     });
   };
   const handleLearningOutcomes = (e) => {
-    setArrayInput(e.target.value);
-    const parsedArray = arrayInput.split(",");
+   const arrayValue =e.target.value
+    const parsedArray = arrayValue.split(",");
     // console.log("a", parsedArray);
     setData({
       ...data,
@@ -136,17 +140,22 @@ const EditCourseModal = (props) => {
 
   const handleSubmit = (e) => {
     // e.preventDefault();
-    console.log("submit data", data);
+    const updatedData ={
+      ...data
+    }
+    delete updatedData._id
+    console.log("submit data", updatedData);
     fetch(`${process.env.REACT_APP_API_BASE_URL}/courses/${courseId}`, {
       method: "PUT",
       headers: { "content-Type": "application/json" },
-      body: JSON.stringify(data),
+      body: JSON.stringify(updatedData),
     })
       .then((res) => res.json())
       .then((data) => {
         if (true) {
-          console.log("up", data);
+          // console.log("up", data);
           toast.success("Course Added Successfully");
+          handleClose()
           // setData(data);
         }
       });
@@ -197,7 +206,7 @@ const EditCourseModal = (props) => {
                 type="text"
                 placeholder="Course Type"
                 onChange={handleCourseType}
-                value={data.courseType}
+                value={data.course_type}
               />
             </Form.Group>
             <Form.Group className="mb-3">
@@ -215,7 +224,7 @@ const EditCourseModal = (props) => {
                 as="textarea"
                 placeholder="Learning OutComes"
                 onChange={handleLearningOutcomes}
-                value={arrayInput}
+                value={data.topics.join(",")}
               />
             </Form.Group>
             <Form.Group className="mb-3">
@@ -224,7 +233,7 @@ const EditCourseModal = (props) => {
                 type="text"
                 placeholder="Instructor"
                 onChange={handleInstructorName}
-                value={data.instructor}
+                value={data.created_by}
               />
             </Form.Group>
             <Form.Group className="mb-3">
@@ -283,7 +292,7 @@ const EditCourseModal = (props) => {
                 value={data.student}
               />
             </Form.Group>
-            <Form.Group className="mb-3">
+            {/* <Form.Group className="mb-3">
               <Form.Label>Expire date</Form.Label>
               <Form.Control
                 type="text"
@@ -291,7 +300,7 @@ const EditCourseModal = (props) => {
                 // onChange={handleTrxId}
                 // value={data.trxId}
               />
-            </Form.Group>
+            </Form.Group> */}
             <Form.Group className="mb-3">
               <Form.Label>Skill</Form.Label>
               <Form.Select

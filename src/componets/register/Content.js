@@ -8,6 +8,7 @@ const Content = () => {
   const { registerWithEmailAndPassword } = useAuth();
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
+    console.log("reg",data);
     registerWithEmailAndPassword(data);
   };
 
@@ -17,9 +18,9 @@ const Content = () => {
         className="account-head"
         // style={{ backgroundImage: "url(assets/images/background/bg2.jpg)" }}
       >
-        <Link to="/">
+        {/* <Link to="/">
           <img src="assets/images/logo-white-2.png" alt="" />
-        </Link>
+        </Link> */}
       </div>
       <div className="account-form-inner">
         <div className="account-container">
@@ -41,6 +42,7 @@ const Content = () => {
                       type="text"
                       required=""
                       className="form-control"
+                      placeholder="Name"
                       {...register("name", { required: true })}
                     />
                   </div>
@@ -72,6 +74,35 @@ const Content = () => {
                   </div>
                 </div>
               </div>
+       
+              <div className="col-lg-12">
+                <div className="form-group">
+                  <div className="input-group">
+                    {/* <label>Your Name</label> */}
+                    <input
+                      type="text"
+                      required=""
+                      className="form-control"
+                      placeholder="Address"
+                      {...register("Address", { required: true })}
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-12">
+                <div className="form-group">
+                  <div className="input-group">
+                    {/* <label>Your Name</label> */}
+                    <input
+                      type="text"
+                      required=""
+                      className="form-control"
+                      placeholder="Phone"
+                      {...register("phone", { required: true })}
+                    />
+                  </div>
+                </div>
+              </div>
               <div className="col-lg-12 m-b30">
                 <button
                   name="submit"
@@ -82,17 +113,7 @@ const Content = () => {
                   Sign Up
                 </button>
               </div>
-              <div className="col-lg-12">
-                <h6>Sign Up with Social media</h6>
-                <div className="d-flex">
-                  <a className="btn flex-fill m-r5 facebook" href="#">
-                    <i className="fa fa-facebook"></i>Facebook
-                  </a>
-                  <a className="btn flex-fill m-l5 google-plus" href="#">
-                    <i className="fa fa-google-plus"></i>Google
-                  </a>
-                </div>
-              </div>
+            
             </div>
           </form>
         </div>

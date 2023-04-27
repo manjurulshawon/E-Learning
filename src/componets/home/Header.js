@@ -17,9 +17,11 @@ const Header = () => {
           <div className="container clearfix">
             {/* <!-- Header Logo ==== --> */}
             <div className="menu-logo">
-              <NavLink to={"/"}>
+              <NavLink to={"/"} style={{textDecoration: "none"}}>
                 {/* <img src="assets/images/logo-white.png" alt="" /> */}
-                E-Learning
+              <p className="text-white" style={{fontSize: 22}}>
+              E-Learning
+                </p>
               </NavLink>
             </div>
             {user?.displayName && (

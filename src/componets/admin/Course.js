@@ -12,9 +12,13 @@ const Course = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [editmodalIsOpen, setEditmodalIsOpen] = useState(false);
 
-  const handleEditModal = (id) => {
+  const handleEditModalOpen = (id) => {
     setCourseId(id)
-    setEditmodalIsOpen(!editmodalIsOpen);
+    setEditmodalIsOpen(true);
+    console.log("modal",editmodalIsOpen);
+  };
+  const handleEditModalClose = (id) => {
+    setEditmodalIsOpen(false);
   };
   function openModal() {
     setIsOpen(true);
@@ -24,9 +28,7 @@ const Course = () => {
     setIsOpen(false);
   }
 
-  // console.log("courses", data.length);
-  // let data = allCourses.filter(course=> course._id == courseId)
-  // let data = allCourses.find((course) => course._id == courseId);
+
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_BASE_URL}/courses`)
       .then((res) => res.json())
@@ -102,7 +104,7 @@ const Course = () => {
                           size="sm"
                           className="mx-2"
                         >
-                          <FaEdit onClick={() => handleEditModal(dt._id)} />
+                          <FaEdit onClick={() => handleEditModalOpen(dt._id)} />
                         </Button>
 
                         <Button
@@ -126,7 +128,7 @@ const Course = () => {
           method="edit"
           courseId={courseId}
           modalIsOpen={editmodalIsOpen}
-          handleClose={handleEditModal}
+          handleClose={handleEditModalClose}
         />
       )}
     </DashboardLayout>

@@ -31,7 +31,7 @@ const Course = ({ course }) => {
           <h5>
             <NavLink to={`/courses/${_id}`}>{course_name}</NavLink>
           </h5>
-          <span>{description}</span>
+          <span>{description?.substring(0, 100)} ...</span>
         </div>
         <div className="cours-more-info">
           <div className="review">

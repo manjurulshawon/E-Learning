@@ -3,17 +3,17 @@ import DashboardLayout from "./DashboardLayout";
 import useAuth from "../../hooks/useAuth";
 
 const Userprofile = () => {
-  const [data, setdata] = useState({});
+  const [data, setData] = useState({});
   const { user } = useAuth();
   console.log("userf", user);
   useEffect(() => {
-    // fetch(`${process.env.REACT_APP_API_BASE_URL}/courses`)
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     console.log("courses", data);
-    //     setData(data);
-    //     setIsLoading(false);
-    //   });
+    fetch(`${process.env.REACT_APP_API_BASE_URL}/users/${user.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("userdata", data);
+        setData(data);
+        // setIsLoading(false);
+      });
   }, []);
   return (
     <DashboardLayout>
@@ -50,6 +50,39 @@ const Userprofile = () => {
                           />
                         </div>
                       </div>
+              {   data.photoURL != null &&     <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Image</label>
+                        <div class="col-sm-7">
+                          <input
+                            class="form-control"
+                            type="text"
+                            value={data.photoURL}
+                            readOnly
+                          />
+                        </div>
+                      </div>}
+              {   data?.user?.Address  &&     <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Address</label>
+                        <div class="col-sm-7">
+                          <input
+                            class="form-control"
+                            type="text"
+                            value={data?.user?.Address}
+                            readOnly
+                          />
+                        </div>
+                      </div>}
+              {   data?.user?.phone  &&     <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Phone</label>
+                        <div class="col-sm-7">
+                          <input
+                            class="form-control"
+                            type="text"
+                            value={data?.user?.phone}
+                            readOnly
+                          />
+                        </div>
+                      </div>}
 
                       {/* <div class="seperator"></div> */}
                     </div>

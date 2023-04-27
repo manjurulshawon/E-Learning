@@ -56,7 +56,7 @@ const Event = () => {
 								<li><a href="#"><i className="fa fa-clock-o"></i> {event.time}</a></li>
 								<li><a href="#"><i className="fa fa-map-marker"></i> {event.location}</a></li>
 							</ul>
-							<p>{event.description.short_description}</p>
+							<p>{event.description.short_description?.substring(0, 100)}</p>
 						</div>
 					</div>
 				</div>

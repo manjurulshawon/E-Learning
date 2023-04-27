@@ -26,16 +26,20 @@ const useFirebase = () => {
   const githubProvider = new GithubAuthProvider();
   const auth = getAuth(initializedApp);
 
-  const registerWithEmailAndPassword = async ({ name, email, password }) => {
+  const registerWithEmailAndPassword = async (data) => {
+    const { name, email, password ,photoURL, address} =data
     console.log(name);
     try {
       const newUser = { email, displayName: name };
       const res = await createUserWithEmailAndPassword(auth, email, password);
       const user = res.user;
-      saveUser(email, name, "post");
+      // saveUser(email, name, "post");
+      saveNewUser(data, "post");
       // send name to firebase after creation
       updateProfile(auth.currentUser, {
         displayName: name,
+        photoURL:photoURL,
+        address: address
       })
         .then(() => {})
         .catch((error) => {});
@@ -94,6 +98,17 @@ const useFirebase = () => {
   // SAVE USER DB
   const saveUser = (email, displayName, method) => {
     const user = { email, displayName, userType: "user" };
+    console.log("userdb", user);
+    fetch(`${process.env.REACT_APP_API_BASE_URL}/users`, {
+      method: method,
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    }).then();
+  };
+  const saveNewUser = (data, method) => {
+    const user = { ...data, userType: "user" };
     console.log("userdb", user);
     fetch(`${process.env.REACT_APP_API_BASE_URL}/users`, {
       method: method,

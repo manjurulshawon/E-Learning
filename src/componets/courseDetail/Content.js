@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { allCourses } from "../../fakeData/allCourses";
 import { Button, Spinner } from "react-bootstrap";
 import { TbCurrencyTaka } from "react-icons/tb";
@@ -7,10 +7,10 @@ const Content = () => {
   const { courseId } = useParams();
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  console.log("idc", courseId);
-  console.log("courses", data.length);
-  // let data = allCourses.filter(course=> course._id == courseId)
-  // let data = allCourses.find((course) => course._id == courseId);
+  const navigate = useNavigate();
+  const handleNavigate = (_id) => {
+    navigate(`/enroll/${_id}`);
+  };
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_BASE_URL}/courses/${courseId}`)
       .then((res) => res.json())
@@ -49,7 +49,7 @@ const Content = () => {
                       </h4>
                     </div>
                     <div className="course-buy-now text-center">
-                      <Button variant="outline-warning" size="sm">
+                      <Button variant="outline-warning" size="sm"    onClick={() => handleNavigate(data._id)}>
                         Enroll
                       </Button>
                     </div>
@@ -71,7 +71,7 @@ const Content = () => {
                   <div className="courses-post">
                     <div className="ttr-post-media media-effect">
                       <a href="">
-                        <img src={data.picture} alt="" />
+                        <img src={data.picture} alt="" style={{height: 350, objectFit: "cover"}}/>
                       </a>
                     </div>
                     <div className="ttr-post-info">
@@ -103,7 +103,7 @@ const Content = () => {
                           <li>
                             <i className="ti-help-alt"></i>{" "}
                             <span className="label">Quizzes</span>{" "}
-                            <span className="value">1</span>
+                            <span className="value">{data.quiz}</span>
                           </li>
                           <li>
                             <i className="ti-time"></i>{" "}
@@ -113,7 +113,7 @@ const Content = () => {
                           <li>
                             <i className="ti-stats-up"></i>{" "}
                             <span className="label">Skill level</span>{" "}
-                            <span className="value">Beginner</span>
+                            <span className="value">{data.skill}</span>
                           </li>
                           <li>
                             <i className="ti-smallcap"></i>{" "}
@@ -123,12 +123,12 @@ const Content = () => {
                           <li>
                             <i className="ti-user"></i>{" "}
                             <span className="label">Students</span>{" "}
-                            <span className="value">32</span>
+                            <span className="value">{data.student}</span>
                           </li>
                           <li>
                             <i className="ti-check-box"></i>{" "}
                             <span className="label">Assessments</span>{" "}
-                            <span className="value">Yes</span>
+                            <span className="value">{data.assignment}</span>
                           </li>
                         </ul>
                       </div>
