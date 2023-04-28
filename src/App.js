@@ -44,6 +44,8 @@ import MyCourse from "./componets/user/MyCourse";
 import AdminRoute from "./componets/adminRoute/AdminRoute";
 import Quiz from "./componets/admin/Quiz";
 import Enroll from "./pages/Enroll";
+import EnrollmentReport from "./componets/admin/EnrollmentReport";
+import MakeAdmin from "./componets/admin/MakeAdmin";
 
 function App() {
   let location = useLocation();
@@ -85,6 +87,22 @@ function App() {
           element={
             <PrivateRoute>
               <Enrollment />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/dashboard/enroleReport"
+          element={
+            <PrivateRoute>
+              <EnrollmentReport/>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/dashboard/makeAdmin"
+          element={
+            <PrivateRoute>
+              <MakeAdmin/>
             </PrivateRoute>
           }
         />

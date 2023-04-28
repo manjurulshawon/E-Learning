@@ -103,8 +103,9 @@ const Course = () => {
                           variant="outline-info"
                           size="sm"
                           className="mx-2"
+                          onClick={() => handleEditModalOpen(dt._id)}
                         >
-                          <FaEdit onClick={() => handleEditModalOpen(dt._id)} />
+                          <FaEdit />
                         </Button>
 
                         <Button

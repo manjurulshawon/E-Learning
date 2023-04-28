@@ -4,7 +4,7 @@ import CourseModal from "./Modal";
 import { Button, Table } from "react-bootstrap";
 import { toast } from "react-toastify";
 
-const Users = () => {
+const MakeAdmin = () => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
@@ -16,24 +16,29 @@ const Users = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log("data", data);
-        let filter = data.filter((dt) => dt.userType != "admin");
+        let filter = data.filter((dt) => dt.userType == "user");
         setData(filter);
         setIsLoading(false);
       });
   }, [data]);
-  const handleDelete = (id) => {
-    const proceed = window.confirm("are you sure, you want to delete?");
+  const handleMakeAdmin = (email) => {
+    const proceed = window.confirm("are you sure, you want to make Admin?");
+    // const updatedData ={
+    //     userType: userType
+    //   }
+    console.log("email",email);
     if (proceed) {
-      const url = `${process.env.REACT_APP_API_BASE_URL}/users/${id}`;
+      const url = `${process.env.REACT_APP_API_BASE_URL}/users/${email}`;
       fetch(url, {
-        method: "DELETE",
+        method: "PUT",
+
       })
         .then((res) => res.json())
         .then((data) => {
-          if (data.deletedCount > 0) {
+          if (data.modifiedCount > 0) {
             // alert('deleted successfully');
-            toast.success("deleted successfully");
-            const remainingUsers = data.filter((users) => users._id !== id);
+            toast.success("Make Admin successfully");
+            const remainingUsers = data.filter((users) => users.email !== email);
             setData(remainingUsers);
           }
         });
@@ -71,9 +76,9 @@ const Users = () => {
                         <Button
                           variant="outline-danger"
                           size="sm"
-                          onClick={() => handleDelete(dt._id)}
+                          onClick={() => handleMakeAdmin(dt.email)}
                         >
-                          Delete
+                          Make Admin
                         </Button>{" "}
                       </td>
                     </tr>
@@ -87,4 +92,4 @@ const Users = () => {
   );
 };
 
-export default Users;
+export default MakeAdmin;

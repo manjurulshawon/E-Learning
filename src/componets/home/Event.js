@@ -41,7 +41,7 @@ const Event = () => {
 				events.map((event)=>  <div> <div className="item mx-2	my-2">
 				<div className="event-bx">
 					<div className="action-box">
-						<img src={event.picture} alt="" />
+						<img src={event.picture} alt="No image" style={{height: 200}} />
 					</div>
 					<div className="info-bx d-flex">
 						<div>

@@ -43,7 +43,7 @@ const Content = () => {
                       required=""
                       className="form-control"
                       placeholder="Name"
-                      {...register("name", { required: true })}
+                      {...register("displayName", { required: true })}
                     />
                   </div>
                 </div>
@@ -56,6 +56,7 @@ const Content = () => {
                       {...register("email", { required: true })}
                       type="email"
                       required=""
+                      placeholder="Email"
                       className="form-control"
                     />
                   </div>
@@ -69,6 +70,7 @@ const Content = () => {
                       type="password"
                       className="form-control"
                       required=""
+                      placeholder="Password"
                       {...register("password", { required: true })}
                     />
                   </div>

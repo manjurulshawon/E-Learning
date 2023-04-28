@@ -18,7 +18,7 @@ const Dashboard = () => {
                   <h4 class="wc-title">Total Users</h4>
                   {/* <span class="wc-des">All Customs Value</span> */}
                   <span class="wc-stats">
-                    $<span class="counter">18</span>
+                    <span class="counter">18</span>
                   </span>
                   <div class="progress wc-progress">
                     <div

@@ -52,11 +52,27 @@ const Sidebar = (props) => {
                   </Link>
                 </li>
                 <li>
+                  <Link to="/dashboard/enroleReport" class="ttr-material-button">
+                    <span class="ttr-icon">
+                      <i class="ti-book"></i>
+                    </span>
+                    <span class="ttr-label">Enrollment Report</span>
+                  </Link>
+                </li>
+                <li>
                   <Link to="/dashboard/users" class="ttr-material-button">
                     <span class="ttr-icon">
                       <i class="ti-book"></i>
                     </span>
                     <span class="ttr-label">Users</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/dashboard/makeAdmin" class="ttr-material-button">
+                    <span class="ttr-icon">
+                      <i class="ti-book"></i>
+                    </span>
+                    <span class="ttr-label">Make Admin</span>
                   </Link>
                 </li>
               </>

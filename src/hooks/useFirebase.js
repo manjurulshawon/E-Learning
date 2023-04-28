@@ -27,17 +27,17 @@ const useFirebase = () => {
   const auth = getAuth(initializedApp);
 
   const registerWithEmailAndPassword = async (data) => {
-    const { name, email, password ,photoURL, address} =data
-    console.log(name);
+    const { displayName, email, password ,photoURL, address} =data
+    // console.log(name);
     try {
-      const newUser = { email, displayName: name };
+      // const newUser = { email, displayName: displayName };
       const res = await createUserWithEmailAndPassword(auth, email, password);
       const user = res.user;
       // saveUser(email, name, "post");
       saveNewUser(data, "post");
       // send name to firebase after creation
       updateProfile(auth.currentUser, {
-        displayName: name,
+        displayName: displayName,
         photoURL:photoURL,
         address: address
       })
