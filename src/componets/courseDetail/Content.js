@@ -5,7 +5,8 @@ import { Button, Spinner } from "react-bootstrap";
 import { TbCurrencyTaka } from "react-icons/tb";
 const Content = () => {
   const { courseId } = useParams();
-  const [data, setData] = useState({});
+  const [courseData, setCourseData] = useState({});
+  const [enrollStudents, setEnrollStudents] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
   const handleNavigate = (_id) => {
@@ -17,7 +18,20 @@ const Content = () => {
       .then((data) => {
         console.log("courses", data);
 
-        setData(data);
+        setCourseData(data);
+        setIsLoading(false);
+      });
+  }, []);
+  useEffect(() => {
+    setIsLoading(true)
+    fetch(`${process.env.REACT_APP_API_BASE_URL}/enrolls`)
+      .then((res) => res.json())
+      .then((data) => {
+        let enrollStudents = data.filter(dt=> dt.course._id == courseId && dt.status == 'confirm')
+        console.log("enroll", enrollStudents);
+
+        // setData(data);
+        setEnrollStudents(enrollStudents.length)
         setIsLoading(false);
       });
   }, []);
@@ -45,11 +59,11 @@ const Content = () => {
                     <div className="course-price">
                       <h4 className="price">
                         {" "}
-                        <TbCurrencyTaka /> {data.price}
+                        <TbCurrencyTaka /> {courseData.price}
                       </h4>
                     </div>
                     <div className="course-buy-now text-center">
-                      <Button variant="outline-warning" size="sm"    onClick={() => handleNavigate(data._id)}>
+                      <Button variant="outline-warning" size="sm"    onClick={() => handleNavigate(courseData._id)}>
                         Enroll
                       </Button>
                     </div>
@@ -71,12 +85,12 @@ const Content = () => {
                   <div className="courses-post">
                     <div className="ttr-post-media media-effect">
                       <a href="">
-                        <img src={data.picture} alt="" style={{height: 350, objectFit: "cover"}}/>
+                        <img src={courseData.picture} alt="" style={{height: 350, objectFit: "cover"}}/>
                       </a>
-                    </div>
+                 </div>
                     <div className="ttr-post-info">
                       <div className="ttr-post-title ">
-                        <h2 className="post-title"> {data.course_name}</h2>
+                        <h2 className="post-title"> {courseData.course_name}</h2>
                       </div>
                       <div className="ttr-post-text">
                         {/* <p>{data.description.short_description}</p> */}
@@ -91,54 +105,54 @@ const Content = () => {
                           <li>
                             <i className="ti-book"></i>{" "}
                             <span className="label">Instructor</span>{" "}
-                            <span className="value">{data.created_by}</span>
+                            <span className="value">{courseData.created_by}</span>
                           </li>
                           <li>
                             <i className="ti-book"></i>{" "}
                             <span className="label">Lectures</span>{" "}
                             <span className="value">
-                              {data.lectures}
+                              {courseData.lectures}
                             </span>
                           </li>
                           <li>
                             <i className="ti-help-alt"></i>{" "}
                             <span className="label">Quizzes</span>{" "}
-                            <span className="value">{data.quiz}</span>
+                            <span className="value">{courseData.quiz}</span>
                           </li>
                           <li>
                             <i className="ti-time"></i>{" "}
                             <span className="label">Duration</span>{" "}
-                            <span className="value">{data.duration}</span>
+                            <span className="value">{courseData.duration}</span>
                           </li>
                           <li>
                             <i className="ti-stats-up"></i>{" "}
                             <span className="label">Skill level</span>{" "}
-                            <span className="value">{data.skill}</span>
+                            <span className="value">{courseData.skill}</span>
                           </li>
                           <li>
                             <i className="ti-smallcap"></i>{" "}
                             <span className="label">Language</span>{" "}
-                            <span className="value">{data.language}</span>
+                            <span className="value">{courseData.language}</span>
                           </li>
                           <li>
                             <i className="ti-user"></i>{" "}
                             <span className="label">Students</span>{" "}
-                            <span className="value">{data.student}</span>
+                            <span className="value">{courseData.student}</span>
                           </li>
                           <li>
                             <i className="ti-check-box"></i>{" "}
                             <span className="label">Assessments</span>{" "}
-                            <span className="value">{data.assignment}</span>
+                            <span className="value">{courseData.assignment}</span>
                           </li>
                         </ul>
                       </div>
                       <div className="col-md-12 col-lg-8">
                         <h5 className="m-b5">Course Description</h5>
-                        <p>{data.description}</p>
+                        <p>{courseData.description}</p>
 
                         <h5 className="m-b5">Learning Outcomes</h5>
                         <ul className="list-checked primary">
-                          {data.topics.map((topic) => (
+                          {courseData?.topics?.map((topic) => (
                             <li>{topic}</li>
                           ))}
                         </ul>

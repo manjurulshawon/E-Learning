@@ -34,7 +34,7 @@ const Courses = () => {
 					<div className="row">
 						<div className="col-md-12 heading-bx left">
 							<h2 className="title-head">Popular <span>Courses</span></h2>
-							<p>It is a long established fact that a reader will be distracted by the readable content of a page</p>
+							{/* <p>It is a long established fact that a reader will be distracted by the readable content of a page</p> */}
 						</div>
 					</div>
 					<div className="row">

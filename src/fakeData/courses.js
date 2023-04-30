@@ -36,7 +36,14 @@ export const courses =
       "Strings",
       "Lists ",
       "Dictionaries"
-    ]
+    ],
+    "video": "./assets/videos/videoplayback.mp4",
+    "content":{
+      "about": "JavaScript is a lightweight, interpreted programming language. It is designed for creating network-centric application. It is complimentary to and integrated with Java. JavaScript is very easy to implement because it is integrated with HTML. It is open and cross-platform.",
+       "audience": "This tutorial has been prepared for JavaScript beginners to help them understand the basic functionality of JavaScript to build dynamic web pages and web applications.",
+       "prerequisites":"For this tutorial, it is assumed that the reader have a prior knowledge of HTML coding. It would help if the reader had some prior exposure to object-oriented programming concepts and a general idea on creating online applications.",
+   "limitations": "We cannot treat JavaScript as a full-fledged programming language. It lacks the following important features: Client-side JavaScript does not allow the reading or writing of files. This has been kept for security reason. JavaScript cannot be used for networking applications because there is no such support available.JavaScript doesn't have any multithreading or multiprocessor capabilities.Once again, JavaScript is a lightweight, interpreted programming language that allows you to build interactivity into otherwise static HTML pages."
+   }
   },
   {
     "course_name": "React - The Complete Guide",

@@ -22,13 +22,22 @@ const Enrollment = () => {
       });
   }, [data]);
 
-  const handleConfirmation = (id, e) => {
+  const handleConfirmation = (id,courseId,student, e) => {
     setIsLoading(true);
+    let students = parseInt(student)
+    let result = students + 1
+    console.log("result",result);
+   let count = {
+    student: result
+   }
+    console.log("studens",count,courseId);
+    console.log("type",typeof(id),typeof(count),typeof(courseId));
     const proceed = window.confirm("Are you sure ?");
     if (proceed) {
       const status = "confirm";
       const updateData = {
         status: status,
+        student: result
       };
 
       fetch(`${process.env.REACT_APP_API_BASE_URL}/enrolls/${id}`, {
@@ -40,10 +49,25 @@ const Enrollment = () => {
         .then((data) => {
           if (true) {
             console.log("up", data);
+          
             toast.success("Payment Confirmed");
             // setData(data);
           }
         });
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/courses/${courseId}`, {
+          method: "PUT",
+          headers: { "content-Type": "application/json" },
+          body: JSON.stringify(count),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (true) {
+              // console.log("studentsup", data);
+              // toast.success("Payment Confirmed");
+              // setData(data);
+            }
+          });
+     
       e.preventDefault();
     }
   };
@@ -86,6 +110,7 @@ const Enrollment = () => {
                   <th>User Email</th>
                   <th>TrxId</th>
                   <th>Phone</th>
+                  <th>Enroll Date</th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
@@ -100,13 +125,14 @@ const Enrollment = () => {
                       <td>{dt.email}</td>
                       <td>{dt.trxId}</td>
                       <td>{dt.phone}</td>
+                      <td>{dt?.enrollDate}</td>
                       <td>{dt.status}</td>
                       <td className="d-flex">
                         <Button
                           variant="outline-success"
                           size="sm"
                           className="mx-2"
-                          onClick={(e) => handleConfirmation(dt._id, e)}
+                          onClick={(e) => handleConfirmation(dt._id,dt.course._id,dt?.student, e)}
                           disabled={dt.status == "confirm" ? true : false}
                         >
                           <AiOutlineCheck />

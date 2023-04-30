@@ -4,6 +4,7 @@ import { Button, Table } from "react-bootstrap";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import { AiOutlineCheck } from "react-icons/ai";
 import { toast } from "react-toastify";
+import './EnrollmentReport.css'
 const EnrollmentReport = () => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -72,12 +73,26 @@ const EnrollmentReport = () => {
       e.preventDefault();
     }
   };
+  function handlePrint() {
+    const content = document.getElementById('printable-content');
+    window.print(content);
+  }
   return (
     <div>
       <DashboardLayout>
         <main className="ttr-wrapper">
           <div className="container-fluid">
-            <Table striped>
+          <div className="db-breadcrumb no-print">
+            <h4 className="breadcrumb-title">Enrollment</h4>
+            <ul className="db-breadcrumb-list">
+            
+              {/* <li>Courses</li> */}
+            </ul>
+            <Button  variant="outline-success"
+                          size="sm" 
+                          onClick={handlePrint}>Print</Button>
+          </div>
+            <Table striped className="print-only" id="printable-content">
               <thead>
                 <tr>
                   <th>#</th>
@@ -86,6 +101,7 @@ const EnrollmentReport = () => {
                   <th>User Email</th>
                   <th>TrxId</th>
                   <th>Phone</th>
+                  <th>Enroll Date</th>
                   {/* <th>Status</th>
                   <th>Action</th> */}
                 </tr>
@@ -100,6 +116,7 @@ const EnrollmentReport = () => {
                       <td>{dt.email}</td>
                       <td>{dt.trxId}</td>
                       <td>{dt.phone}</td>
+                      <td>{dt.enrollDate}</td>
                       {/* <td>{dt.status}</td>
                       <td className="d-flex">
                         <Button

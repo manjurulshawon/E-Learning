@@ -46,6 +46,7 @@ import Quiz from "./componets/admin/Quiz";
 import Enroll from "./pages/Enroll";
 import EnrollmentReport from "./componets/admin/EnrollmentReport";
 import MakeAdmin from "./componets/admin/MakeAdmin";
+import CourseMaterials from "./pages/courseMaterials/CourseMaterials";
 
 function App() {
   let location = useLocation();
@@ -56,13 +57,7 @@ function App() {
   console.log("location", process.env.REACT_APP_API_BASE_URL);
   return (
     <AuthProvider>
-      {/* <Header /> */}
-      {/* {location.pathname == "/login" ||
-        location.pathname == "/register" ||
-        location.pathname == "/dashboard" ||
-        location.pathname == "/dashboard/course" ? null : (
-        <Header />
-      )} */}
+    
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -74,6 +69,7 @@ function App() {
         <Route path="/courses/:courseId" element={<CourseDetail />} />
         <Route path="/events/:eventId" element={<Eventdetails />} />
         <Route path="/enroll/:enrollId" element={<PrivateRoute><Enroll /></PrivateRoute>} />
+        <Route path="/coursesMaterials/:courseId" element={<CourseMaterials />} />
         <Route
           path="/dashboard"
           element={

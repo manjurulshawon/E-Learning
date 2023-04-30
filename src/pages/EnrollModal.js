@@ -9,6 +9,7 @@ const EnrollModal = (props) => {
     const {user} =useAuth()
   const { show, handleClose,course } = props;
   const [data, setData] = useState({});
+  console.log("enrolCO",course);
   const handleName = (e) => {
     setData({
       ...data,
@@ -35,6 +36,8 @@ const EnrollModal = (props) => {
     data.course = course
     data.displayName = user.displayName
     data.email = user.email
+    data.student = course.student
+    data.enrollDate = new Date().toLocaleDateString()
 
     fetch(`${process.env.REACT_APP_API_BASE_URL}/enrolls`, {
       method: "POST",

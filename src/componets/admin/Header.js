@@ -8,7 +8,7 @@ import { Button } from "react-bootstrap";
 const Header = ({ isActive, setIsActive }) => {
   const { logout, user } = useFirebase();
   return (
-    <header class="ttr-header" style={{backgroundColor: "gray"}}>
+    <header class="ttr-header no-print" style={{backgroundColor: "gray"}}>
       <div class="ttr-header-wrapper">
         <div
           class="ttr-toggle-sidebar ttr-material-button  d-flex align-items-center justify-content-center"

@@ -8,7 +8,7 @@ const Sidebar = (props) => {
   const { user, admin } = useAuth();
   // console.log("admin", admin)
   return (
-    <div class="ttr-sidebar">
+    <div class="ttr-sidebar no-print">
       <div class="ttr-sidebar-wrapper content-scroll">
         <div class="ttr-sidebar-logo">
           {/* <a href="#">

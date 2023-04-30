@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import EditCourseModal from "./EditCourseModal";
 const Course = () => {
   const [data, setData] = useState({});
+  const [enrollStudents, setEnrollStudents] = useState({});
   const [courseId, setCourseId] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -30,15 +31,17 @@ const Course = () => {
 
 
   useEffect(() => {
+   
     fetch(`${process.env.REACT_APP_API_BASE_URL}/courses`)
       .then((res) => res.json())
       .then((data) => {
-        // console.log("courses", data);
+        console.log("courses", data);
 
         setData(data);
         setIsLoading(false);
       });
-  }, [data]);
+  }, []);
+
   const handleDelete = (id) => {
     const proceed = window.confirm("are you sure, you want to delete?");
     if (proceed) {
@@ -83,20 +86,24 @@ const Course = () => {
                 <tr>
                   <th>#</th>
                   <th> Name</th>
-                  <th>Course Type</th>
                   <th>Duration</th>
+                  <th>Course Type</th>
+                  <th>Students</th>
+                 
                   <th>Price</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
                 {!isLoading &&
-                  data.map((dt, key) => (
+                  data?.map((dt, key) => (
                     <tr>
                       <td>{key + 1}</td>
                       <td>{dt.course_name}</td>
-                      <td>{dt.course_type}</td>
                       <td>{dt.duration}</td>
+                      <td>{dt.course_type}</td>
+                      <td>{dt.student}</td>
+                     
                       <td>{dt.price}</td>
                       <td className="d-flex">
                         <Button

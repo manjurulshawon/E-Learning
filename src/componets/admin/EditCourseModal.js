@@ -22,6 +22,10 @@ const EditCourseModal = (props) => {
   const { handleClose, method, modalIsOpen,courseId } = props;
   const [data, setData] = useState({});
   const [arrayInput, setArrayInput] = useState('');
+  const [about, setAbout] = useState('');
+  const [limitations, setLimitations] = useState('');
+  const [audience, setAudience] = useState('');
+  const [prerequisites, setPrerequisite] = useState('');
 
 
 //   const { courseId } = useParams();
@@ -137,11 +141,34 @@ useEffect(() => {
       topics: parsedArray,
     });
   };
-
+  const handleIntro = (e) => {
+   setAbout(e.target.value)
+  };
+  const handleAudience = (e) => {
+   setAudience(e.target.value)
+  };
+  const handlePrerequisites = (e) => {
+   setPrerequisite(e.target.value)
+  };
+  const handleLimitations = (e) => {
+   setLimitations(e.target.value)
+  };
+  const handleVideo = (e) => {
+    setData({
+      ...data,
+      video: e.target.value,
+    });
+  };
   const handleSubmit = (e) => {
     // e.preventDefault();
     const updatedData ={
-      ...data
+      ...data,
+      content:{
+        about:about,
+        audience:audience,
+        prerequisites:prerequisites,
+        limitations:limitations
+      }
     }
     delete updatedData._id
     console.log("submit data", updatedData);
@@ -224,7 +251,7 @@ useEffect(() => {
                 as="textarea"
                 placeholder="Learning OutComes"
                 onChange={handleLearningOutcomes}
-                value={data.topics.join(",")}
+                value={data?.topics?.join(",")}
               />
             </Form.Group>
             <Form.Group className="mb-3">
@@ -284,23 +311,50 @@ useEffect(() => {
               />
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Label>Student</Form.Label>
+              <Form.Label>Intro</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Student"
-                onChange={handleStudent}
-                value={data.student}
+                placeholder="Intro"
+                onChange={handleIntro}
+                value={data?.content?.about}
               />
             </Form.Group>
-            {/* <Form.Group className="mb-3">
-              <Form.Label>Expire date</Form.Label>
+            <Form.Group className="mb-3">
+              <Form.Label>Audience</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Expire date"
-                // onChange={handleTrxId}
-                // value={data.trxId}
+                placeholder="Audience"
+                onChange={handleAudience}
+                value={data?.content?.audience}
               />
-            </Form.Group> */}
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Prerequisites</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Prerequisites"
+                onChange={handlePrerequisites}
+                value={data?.content?.prerequisites}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Limitations</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Limitations"
+                onChange={handleLimitations}
+                value={data?.content?.limitations}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Video</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Video URL Only"
+                onChange={handleVideo}
+                value={data.video}
+              />
+            </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Skill</Form.Label>
               <Form.Select

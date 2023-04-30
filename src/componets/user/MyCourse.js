@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import DashboardLayout from "../admin/DashboardLayout";
-import { Table } from "react-bootstrap";
+import { Button, Table } from "react-bootstrap";
 import useAuth from "../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 const MyCourse = () => {
   const { user, isLoading, setIsLoading } = useAuth();
 
   const [data, setData] = useState([]);
-
+  const navigate = useNavigate()
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_BASE_URL}/enrolls`)
       .then((res) => res.json())
@@ -18,7 +19,11 @@ const MyCourse = () => {
         setData(updateData);
         setIsLoading(false);
       });
-  }, [data]);
+  }, [data]); 
+
+  const handleNavigate =(id)=>{
+    navigate(`/coursesMaterials/${id}`)
+  }
   return (
     <div>
       <DashboardLayout>
@@ -31,6 +36,7 @@ const MyCourse = () => {
                   <th>Course Name</th>
                   <th>Instructor</th>
                   <th>Status</th>
+                  <th>View</th>
                 </tr>
               </thead>
               <tbody>
@@ -43,27 +49,20 @@ const MyCourse = () => {
                       <td>{dt.course.created_by}</td>
 
                       <td>{dt.status}</td>
-                      {/* <td className="d-flex">
+                      <td className="d-flex">
                         <Button
                           variant="outline-success"
                           size="sm"
                           className="mx-2"
-                          onClick={(e) => handleConfirmation(dt._id, e)}
-                          disabled={dt.status == "confirm" ? true : false}
+                          onClick={(e) => handleNavigate(dt.course._id, e)}
+                    
                         >
-                          <AiOutlineCheck />
+                         View
                         </Button>
 
-                        <Button
-                          variant="outline-danger"
-                          size="sm"
-                          disabled={dt.status == "cancel" ? true : false}
-                          onClick={(e) => handleCancel(dt._id, e)}
-                        >
-                          <FaTrash />
-                        </Button>
+                      
                      
-                      </td> */}
+                      </td>
                     </tr>
                   ))}
               </tbody>
