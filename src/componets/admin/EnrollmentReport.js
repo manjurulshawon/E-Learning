@@ -40,7 +40,7 @@ const EnrollmentReport = () => {
         .then((res) => res.json())
         .then((data) => {
           if (true) {
-            console.log("up", data);
+            // console.log("up", data);
             toast.success("Payment Confirmed");
             // setData(data);
           }
@@ -99,6 +99,7 @@ const EnrollmentReport = () => {
                   <th>Name</th>
                   <th>Course Name</th>
                   <th>User Email</th>
+                  <th>Students</th>
                   <th>TrxId</th>
                   <th>Phone</th>
                   <th>Enroll Date</th>
@@ -114,6 +115,7 @@ const EnrollmentReport = () => {
                       <td>{dt.name}</td>
                       <td>{dt.course.course_name}</td>
                       <td>{dt.email}</td>
+                      <td>{dt.student}</td>
                       <td>{dt.trxId}</td>
                       <td>{dt.phone}</td>
                       <td>{dt.enrollDate}</td>

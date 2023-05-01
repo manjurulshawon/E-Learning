@@ -30,8 +30,8 @@ const EditCourseModal = (props) => {
 
 //   const { courseId } = useParams();
   const [isLoading, setIsLoading] = useState(true);
-  console.log("idc", courseId);
-  console.log("courses", data.length);
+  // console.log("idc", courseId);
+  // console.log("courses", data.length);
   // let data = allCourses.filter(course=> course._id == courseId)
   // let data = allCourses.find((course) => course._id == courseId);
   useEffect(() => {
@@ -41,14 +41,14 @@ const EditCourseModal = (props) => {
           
           setData(data);
           setIsLoading(false);
-          console.log("courses", data);
+          // console.log("courses", data);
       });
   }, []);
 
 
 useEffect(() => {
  setArrayInput(data?.topics?.join(","))
- console.log("topics",arrayInput);
+//  console.log("topics",arrayInput);
 }, [])
 
 

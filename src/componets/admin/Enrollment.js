@@ -26,12 +26,12 @@ const Enrollment = () => {
     setIsLoading(true);
     let students = parseInt(student)
     let result = students + 1
-    console.log("result",result);
+    // console.log("result",result);
    let count = {
     student: result
    }
-    console.log("studens",count,courseId);
-    console.log("type",typeof(id),typeof(count),typeof(courseId));
+    // console.log("studens",count,courseId);
+    // console.log("type",typeof(id),typeof(count),typeof(courseId));
     const proceed = window.confirm("Are you sure ?");
     if (proceed) {
       const status = "confirm";
@@ -48,7 +48,7 @@ const Enrollment = () => {
         .then((res) => res.json())
         .then((data) => {
           if (true) {
-            console.log("up", data);
+            // console.log("up", data);
           
             toast.success("Payment Confirmed");
             // setData(data);

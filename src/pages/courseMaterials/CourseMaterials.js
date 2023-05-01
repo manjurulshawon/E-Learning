@@ -73,7 +73,7 @@ const CourseMaterials = () => {
                         <p>{courseData?.content?.audience}</p>
                      { courseData?.content?.prerequisites && <><h5 className="m-b5">Prerequisites</h5>
                         <p>{courseData?.content?.prerequisites}</p></>  }
-                        <h5 className="m-b5">Let's Start</h5>
+                        <h5 className="m-b5">Tutorial</h5>
                         <video width="420" height="340" controls>
                         <source src={courseData?.video} type="video/mp4"/>
 

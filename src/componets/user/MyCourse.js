@@ -15,7 +15,8 @@ const MyCourse = () => {
       .then((data) => {
         // console.log("courses", data);
         const userEmail = user.email;
-        const updateData = data.filter((mo) => mo.email === userEmail);
+        const updateData = data.filter((mo) => mo.email == userEmail && mo.status == 'confirm');
+        // console.log("updateData", updateData);
         setData(updateData);
         setIsLoading(false);
       });

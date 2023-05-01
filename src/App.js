@@ -53,8 +53,8 @@ function App() {
   const { user } = useFirebase();
   // history.navigate = useNavigate();
   // history.location = useLocation();
-  console.log("location", location);
-  console.log("location", process.env.REACT_APP_API_BASE_URL);
+  // console.log("location", location);
+  // console.log("location", process.env.REACT_APP_API_BASE_URL);
   return (
     <AuthProvider>
     

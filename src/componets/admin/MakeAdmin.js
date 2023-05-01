@@ -8,14 +8,14 @@ const MakeAdmin = () => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
-  console.log("courses", data.length);
+  // console.log("courses", data.length);
   // let data = allCourses.filter(course=> course._id == courseId)
   // let data = allCourses.find((course) => course._id == courseId);
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_BASE_URL}/users`)
       .then((res) => res.json())
       .then((data) => {
-        console.log("data", data);
+        // console.log("data", data);
         let filter = data.filter((dt) => dt.userType == "user");
         setData(filter);
         setIsLoading(false);
@@ -26,7 +26,7 @@ const MakeAdmin = () => {
     // const updatedData ={
     //     userType: userType
     //   }
-    console.log("email",email);
+    // console.log("email",email);
     if (proceed) {
       const url = `${process.env.REACT_APP_API_BASE_URL}/users/${email}`;
       fetch(url, {

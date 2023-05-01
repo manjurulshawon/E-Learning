@@ -16,7 +16,7 @@ const Course = () => {
   const handleEditModalOpen = (id) => {
     setCourseId(id)
     setEditmodalIsOpen(true);
-    console.log("modal",editmodalIsOpen);
+    // console.log("modal",editmodalIsOpen);
   };
   const handleEditModalClose = (id) => {
     setEditmodalIsOpen(false);
@@ -35,12 +35,12 @@ const Course = () => {
     fetch(`${process.env.REACT_APP_API_BASE_URL}/courses`)
       .then((res) => res.json())
       .then((data) => {
-        console.log("courses", data);
+        // console.log("courses", data);
 
         setData(data);
         setIsLoading(false);
       });
-  }, []);
+  }, [data]);
 
   const handleDelete = (id) => {
     const proceed = window.confirm("are you sure, you want to delete?");
